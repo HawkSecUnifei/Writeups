@@ -1,4 +1,4 @@
-# rev/aplet321
+# aplet321
 
 The challenge description:
 
