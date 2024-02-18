@@ -2,7 +2,7 @@
 
 ## rev
 
-- [shattered-memories](tasks/shattered-memories/writeup)
+- [shattered-memories](tasks/shattered-memories/writeup.md)
 - [aplet321](tasks/aplet321/writeup.md)
 
 ## web

@@ -1,6 +1,7 @@
 # mixed signals
 
 challenge description:
+
 ![alt text](assets/chall.png)
 
 The challenge has an audio file attached, with a man saying the phonetic alphabet and a couple of symbols after. The description has a hint that important stuff is at 40khz. Then if you've studied telecomunications you can tell its a type of wave modulation, this case a amplitude modulation.
