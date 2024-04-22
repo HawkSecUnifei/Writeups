@@ -1,0 +1,2 @@
+# CTFS
+- [LaCTF](/2024/LaCTF-2024/README.md)
