@@ -38,14 +38,14 @@ Para decodificar a mensagem, precisamos configurar corretamente as ferramentas:
    - Abra o VLC e vá até o menu superior:
      - **Áudio** > **Dispositivo de Áudio** > selecione **CABLE In 16 Ch (VB-Audio Virtual Cable)**.
 
-   ![Configuração de Áudio no VLC](HackTheBox/Easy/Signals/images/Configuração%20VLC.png)
+   ![Configuração de Áudio no VLC](HackTheBox/Easy/Signals/images/Configuração_VLC.png)
 
 2.3. **Configuração de Áudio no MMSSTV**
    - No MMSSTV, vá até o menu superior:
      - **Option** > **Setup MMSSTV(0)...**
    - Na janela de configuração, selecione a aba **Misc** e, na seção **Sound Card**, defina a entrada de áudio como **CABLE Output (VB-Audio Virtual Cable)**.
 
-   ![Configuração de Áudio no MMSSTV](HackTheBox/Easy/Signals/images/Configuracao%20MMSSTV.png)
+   ![Configuração de Áudio no MMSSTV](HackTheBox/Easy/Signals/images/Configuracao_MMSSTV.png)
 
 ### 3. Decodificação da Imagem e Extração da Flag
 
@@ -53,7 +53,7 @@ Para decodificar a mensagem, precisamos configurar corretamente as ferramentas:
     - O MMSSTV interpretará os sinais SSTV e gerará uma imagem.
     - Quando a imagem for completamente decodificada, ela exibirá a flag.
 
-![Imagem SSTV com a flag.](HackTheBox/Easy/Signals/images/Imagem%20SSTV%20com%20Flag.png)
+![Imagem SSTV com a flag.](HackTheBox/Easy/Signals/images/SSTV_Flag.png)
 
 **Flag:**  
 `HTB{5l0w-5c4n_73l3v1510n_h4m_r4d10_h4ck3r}`
