@@ -38,7 +38,7 @@ Para decodificar a mensagem, precisamos configurar corretamente as ferramentas:
    - Abra o VLC e vá até o menu superior:
      - **Áudio** > **Dispositivo de Áudio** > selecione **CABLE In 16 Ch (VB-Audio Virtual Cable)**.
 
-   ![Configuração de Áudio no VLC](HackTheBox/Easy/Signals/images/Configuração_VLC.png)
+   ![Configuração de Áudio no VLC](images/Configuração_VLC.png)
 
 2.3. **Configuração de Áudio no MMSSTV**
    - No MMSSTV, vá até o menu superior:
