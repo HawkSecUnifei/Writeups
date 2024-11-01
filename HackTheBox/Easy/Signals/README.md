@@ -69,4 +69,4 @@ Para decodificar a mensagem, precisamos configurar corretamente as ferramentas:
 
 ## Autor
 
-![Membro de Exploitaion - Pedro Henrique dos Santos Barbosa](https://github.com/Petw143)
+[Membro de Exploitaion - Pedro Henrique dos Santos Barbosa](https://github.com/Petw143)
