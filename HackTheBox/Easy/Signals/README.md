@@ -18,7 +18,7 @@
 ## Passo a Passo da Solução
 
 ### 1. Análise Inicial
-- **Arquivo/Entrada:** O arquivo de entrada fornecido é um áudio: [`Signal.wav`](/Signal.wav).
+- **Arquivo/Entrada:** O arquivo de entrada fornecido é um áudio: [`Signal.wav`](Signal.wav).
 - **Ferramentas Utilizadas:** Para resolver o desafio, foram utilizadas as seguintes ferramentas:
     - **VLC**: Reprodutor de mídia para tocar o áudio.
     - **VB-Audio Virtual Cable**: Um driver de áudio virtual que permite isolar a saída do áudio.
