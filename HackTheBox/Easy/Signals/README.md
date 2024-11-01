@@ -6,11 +6,12 @@
 **Nome:** Signals  
 **Plataforma:** Hack The Box  
 **Categoria:** Hacking  
-**Dificuldade:** Fácil
+**Dificuldade:** Fácil  
 **Data:** Novembro/2024
 
-**Descrição do desafio:**  
-Neste desafio, é fornecido um áudio que contém uma mensagem criptografada. O objetivo é descriptografar essa mensagem oculta e descobrir a flag. Para isso, usaremos o aplicativo **MMSSTV** para analisar o espectrograma e capturar uma imagem no formato SSTV (Slow Scan Television). No entanto, para evitar interferências, precisamos isolar o áudio no sistema, usando o **VB-Audio Virtual Cable** como canal de áudio dedicado, e o **VLC** para reproduzir o áudio e direcionar a saída ao canal apropriado.
+**Descrição do desafio:** 
+
+>Neste desafio, é fornecido um áudio que contém uma mensagem criptografada. O objetivo é descriptografar essa mensagem oculta e descobrir a flag. Para isso, usaremos o aplicativo **MMSSTV** para analisar o espectrograma e capturar uma imagem no formato SSTV (Slow Scan Television). No entanto, para evitar interferências, precisamos isolar o áudio no sistema, usando o **VB-Audio Virtual Cable** como canal de áudio dedicado, e o **VLC** para reproduzir o áudio e direcionar a saída ao canal apropriado.
 
 ---
 
