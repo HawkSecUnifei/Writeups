@@ -63,8 +63,8 @@ Para decodificar a mensagem, precisamos configurar corretamente as ferramentas:
 
 ## Referência
 
-![Marco Campione - Write-Up Signals HTB](https://marcocampione.com/posts/202303-write-up-signals-htb/)
-![Medium - HackTheBox Signals](https://medium.com/@tanish.saxena26/hackthebox-signals-d6947e7e2886)
+[Marco Campione - Write-Up Signals HTB](https://marcocampione.com/posts/202303-write-up-signals-htb/)
+[Medium - HackTheBox Signals](https://medium.com/@tanish.saxena26/hackthebox-signals-d6947e7e2886)
 
 
 ## Autor
