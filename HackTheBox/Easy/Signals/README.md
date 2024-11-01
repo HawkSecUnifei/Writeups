@@ -44,7 +44,7 @@ Para decodificar a mensagem, precisamos configurar corretamente as ferramentas:
    - No MMSSTV, vá até o menu superior:
      - **Option** > **Setup MMSSTV(0)...**
    - Na janela de configuração, selecione a aba **Misc** e, na seção **Sound Card**, defina a entrada de áudio como **CABLE Output (VB-Audio Virtual Cable)**.
-
+0
    ![Configuração de Áudio no MMSSTV](HackTheBox/Easy/Signals/images/Configuracao_MMSSTV.png)
 
 ### 3. Decodificação da Imagem e Extração da Flag
