@@ -7,7 +7,6 @@
 **Plataforma:** Hack The Box  
 **Categoria:** Hacking  
 **Dificuldade:** Fácil
-
 **Data:** Novembro/2024
 
 **Descrição do desafio:**  
