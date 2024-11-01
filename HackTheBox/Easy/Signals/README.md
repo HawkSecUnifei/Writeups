@@ -10,7 +10,7 @@
 **Data:** Novembro/2024
 
 **Descrição do desafio:**  
-> Neste desafio, é fornecido um áudio que contém uma mensagem criptografada. O objetivo é descriptografar essa mensagem oculta e descobrir a flag. Para isso, usaremos o aplicativo **MMSSTV** para analisar o espectrograma e capturar uma imagem no formato SSTV (Slow Scan Television). No entanto, para evitar interferências, precisamos isolar o áudio no sistema, usando o **VB-Audio Virtual Cable** como canal de áudio dedicado, e o **VLC** para reproduzir o áudio e direcionar a saída ao canal apropriado.
+Neste desafio, é fornecido um áudio que contém uma mensagem criptografada. O objetivo é descriptografar essa mensagem oculta e descobrir a flag. Para isso, usaremos o aplicativo **MMSSTV** para analisar o espectrograma e capturar uma imagem no formato SSTV (Slow Scan Television). No entanto, para evitar interferências, precisamos isolar o áudio no sistema, usando o **VB-Audio Virtual Cable** como canal de áudio dedicado, e o **VLC** para reproduzir o áudio e direcionar a saída ao canal apropriado.
 
 ---
 
@@ -49,11 +49,11 @@ Para decodificar a mensagem, precisamos configurar corretamente as ferramentas:
 
 ### 3. Decodificação da Imagem e Extração da Flag
 
-    - Após configurar as ferramentas, reproduza o áudio no VLC enquanto o MMSSTV decodifica o espectrograma.
-    - O MMSSTV interpretará os sinais SSTV e gerará uma imagem.
-    - Quando a imagem for completamente decodificada, ela exibirá a flag.
+- Após configurar as ferramentas, reproduza o áudio no VLC enquanto o MMSSTV decodifica o espectrograma.
+- O MMSSTV interpretará os sinais SSTV e gerará uma imagem.
+- Quando a imagem for completamente decodificada, ela exibirá a flag.
 
-![Imagem SSTV com a flag.](HackTheBox/Easy/Signals/images/SSTV_Flag.png)
+![Imagem SSTV com a flag.](images/SSTV_Flag.png)
 
 **Flag:**  
 `HTB{5l0w-5c4n_73l3v1510n_h4m_r4d10_h4ck3r}`
