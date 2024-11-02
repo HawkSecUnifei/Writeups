@@ -1,1 +1,1 @@
-# WriteUps for exercises on the Hack The Box platform
+# WriteUps dos desafios da plataforma Hack The Box
