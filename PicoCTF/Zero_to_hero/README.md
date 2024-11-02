@@ -135,7 +135,7 @@ void addPower(void)
 }
 ```
 
-Olhando para elas podemos assumir alumas coisas:
+Olhando para elas podemos assumir algumas coisas:
 
 - removePower: aqui verificamos que podemos ter 6 super poderes ao mesmo tempo (não importa muito no caso), podemos ver que os poderes (na verdade o endereço do chunk deles) é armazenado em uma variável global que eu renomeei como `powers`, e o mais importante, temos uma vulnerabilidade em que após liberarmos o chunk, com a função `free()`, o endereço na variável `powers` não é anulado, fazendo com que seja possível realizar um `double-free`.
 - addPower: aqui verificamos que podemos digitar o tamanho do super poder (chunk), sendo o máximo 1032 (importante), e podemos escrever nesse tamanho. E aí está outra vulnerabilidade, quando escrevemos uma string, o final dela sempre deve ser um byte nulo `\0`, e no código nós podemos escrever exatamente a quantidade que pedimos, e em seguida o `\0` é colocado. Então, se escrevermos no tamanho total, o byte nulo é colocado em uma região que não é da string.
