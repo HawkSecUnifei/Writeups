@@ -156,18 +156,23 @@ Bom, foi visto que podemos escrever o tamanho total do chunk, e com isso o `\0` 
 - O segundo chunk deve ter tamanho acima de `0x200` e abaixo de `0x300`, pois quando ele for envenenado, o seu tamanho passará a ser `0x200`, que será devolvido pela `malloc()` quando for requisitado um chunk com tamanho menor do que 512 (não tão menor).
 - É necessário alocar o primeiro chunk, depois alocar o segundo, e só após isso começar a realizar os `free()`, para garantir que eles estarão em sequência na memória.
 
-Com isso conseguimos realizar um `double-free`, forçando o chunk ter 2 tamanhos diferentes, e também conseguimos manipular o `fd` (ponteiro para o próximo chunk na bin). Mas como vamos conseguir chegar na função `win()`? É aí que entra uma carta na manga, no início do código foi vazado o endereço da system, e a system é uma função da **libc**, portanto nós conseguimos quebrar o **ASLR** e temos acesso a qualquer coisa dela. Também podemos ver que a **libc** tem apenas `PARTIAL RELRO`, ou seja, podemos escrever na `.GOT`.
+Com isso conseguimos realizar um `double-free`, forçando o chunk ter 2 tamanhos diferentes, e também conseguimos manipular o `fd` (ponteiro para o próximo chunk na bin). Mas como vamos conseguir chegar na função `win()`? 
+
+É aí que entra uma carta na manga, os ponteiros `__free_hook` e `__malloc_hook` da **libc**. Esses ponteiros são usados nas suas respectivas funções, com a função de garantir a execução de uma outra função específica, dessa forma, se alterarmos elee (apenas 1), podemos alterar o fluxo de execução para alguma função `win()`. Isso só será possível, pois há um vazamento da system no início, permitindo quebrar a proteção **ASLR**.
+
+> [!note]
+> Os ponteiros `__free_hook` e `__malloc_hook` foram removidos na versão 2.34.
 
 ### 3. Solução
-Primeiramente alocamos os dois chunks, um de 1032 e outro de 510, liberamos eles, e alocamos apenas o 1032, preenchendo ele totalmente. Agora nosso segundo chunk está com outro tamanho em seus metadados, `0x200`, então liberamos ele novamente.
+Primeiramente alocamos os dois chunks, um de 1032 e outro de 510, e liberamos eles, após isso alocamos novamente o de 1032, preenchendo ele totalmente. Agora, nosso segundo chunk está com outro tamanho em seus metadados, `0x200`, então liberamos ele novamente.
 
-A parte pensada para colocar como endereço do `fd` é o `__free_hook`, que é um ponteiro da **libc** chamado quando usamos a função `free()`. Assim, alocamos novamente nosso chunk de 510 passando o endereço do `__free_hook`, e após isso alocamos o mesmo chunk na outra bin (tamanho 500). Se tudo deu certo, a tcache tem que estar assim:
+Por fim, alocamos o segundo chunk novamente (510) e colocamos como valor o `__free_hook`, e se tudo deu certo a tcache estará assim:
 ```
 tcache(1032): vazia
 tcache(510): vazia
-tcahe(500): __free_hook
+tcahe(500): chunk_envenenado(0x200) -> __free_hook
 ```
-Então alocamos novamente um chunk de 500 e passamos como valor o endereço da `win()`, e pronto, basta realizarmos algum `free()` que retornaremos para a `win()` e a flag será popada.
+E pronto, estamos com a faca e o queijo na mão, basta apenas alocar o chunk_envenenado, e alocar o `__free_hook` passando como valor o endereço da `win()`. Agora quando chamarmos a função `free()`, iremos para a função `win()` e a flag será popada.
 
 ### 3. Solução com Python
 ```py
