@@ -1,5 +1,5 @@
 # Writeups
-esse repositório é utilizado para armazenar os writeups do time
+Este repositório é utilizado para armazenar as WriteUps desenvolvidas pelos membros do time.
 
 ## Ano
-- [2024](/2024/README.md)
+- [2024](/2024)
