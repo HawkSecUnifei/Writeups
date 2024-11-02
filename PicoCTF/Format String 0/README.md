@@ -9,7 +9,7 @@
 > Can you use your knowledge of format strings to make the customers happy?
 ## Passo a Passo da Solução
 ### 1. Análise do arquivo fornecido
-Este desaio nos fornece o seu código fonte, `.c`. Analisando ele, vemos que ele contém diversas funções, mas elas estão todas ali para te distrair, porque logo na `main()` podemos notar que é setado uma função para caso ocorra segmentation fault, e a função que é chamada imprime a flag para nós.
+Este desafio nos fornece o seu código fonte, `.c`. Analisando ele, vemos que ele contém diversas funções, mas elas estão todas ali para te distrair, porque logo na `main()` podemos notar que é setado uma função para caso ocorra segmentation fault, e a função que é chamada imprime a flag para nós.
 ```c
 void sigsegv_handler(int sig) {
     printf("\n%s\n", flag);
