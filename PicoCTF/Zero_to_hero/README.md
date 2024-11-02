@@ -137,7 +137,7 @@ void addPower(void)
 
 Olhando para elas podemos assumir algumas coisas:
 
-- removePower: aqui verificamos que podemos ter 6 super poderes ao mesmo tempo, podemos ver que os poderes (na verdade o endereço do chunk deles) é armazenado em uma variável global que eu renomeei como `powers`, e o mais importante, temos uma vulnerabilidade em que após liberarmos o chunk, com a função `free()`, o endereço na variável `powers` não é anulado, fazendo com que seja possível realizar um `double-free`.
+- removePower: aqui verificamos que podemos ter 7 super poderes ao mesmo tempo, podemos ver que os poderes (na verdade o endereço do chunk deles) é armazenado em uma variável global que eu renomeei como `powers`, e o mais importante, temos uma vulnerabilidade em que após liberarmos o chunk, com a função `free()`, o endereço na variável `powers` não é anulado, fazendo com que seja possível realizar um `double-free`.
 - addPower: aqui verificamos que podemos digitar o tamanho do super poder (chunk), sendo o máximo 1032 (importante), e podemos escrever nesse tamanho. E aí está outra vulnerabilidade, quando escrevemos uma string, o final dela sempre deve ser um byte nulo `\0`, e no código nós podemos escrever exatamente a quantidade que pedimos, e em seguida o `\0` é colocado. Então, se escrevermos no tamanho total, o byte nulo é colocado em uma região que não é da string.
 
 ### 2. Exploit
@@ -146,11 +146,11 @@ Pelo o que foi analisado, já podemos ter uma ideia que o exploit deve ser algo 
 Resumindo essa versão, a `tcachebin` já foi implementada, e já contém suas verificações de segurança contra `double-free`. Aqui já podemos assumir algumas coisas:
 
 - Não podemos realizar `double-free` na mesma bin da `tcache`.
-- Não podemos utilizar a `fastbin` pois só podemos ter 6 poderes.
+- Não podemos utilizar a `fastbin` pois só podemos ter 7 poderes.
 
-Então como vamos realizar o exploit? Analisando um pouco, é possível chegar na conclusão que podemos fazer um chunk ter 2 tamanhos ao mesmo tampo, como? 
+Então como vamos realizar o exploit? Analisando um pouco, é possível chegar na conclusão que podemos fazer um chunk ter 2 tamanhos ao mesmo tempo, como? 
 
-Bom, foi visto que podemos escrever o tamanho total do chunk, e com isso o `\0` é colocado no próximo chunk, alterando o campo `size` dele. Para isso temos que ficar atentos a algumas coisas:
+Bom, foi visto que podemos escrever o tamanho total do chunk, e com isso o `\0` é colocado no próximo chunk, alterando o campo `size` dele. Mas temos que ficar atentos a algumas coisas:
 
 - O chunk que será escrito totalmente deve ser do tamanho máximo, 1032, pois dessa forma a `malloc()` não irá realizar o alinhamento (aumentar o tamanho para os metadados).
 - O segundo chunk deve ter tamanho acima de `0x200` e abaixo de `0x300`, pois quando ele for envenenado, o seu tamanho passará a ser `0x200`, que será devolvido pela `malloc()` quando for requisitado um chunk com tamanho menor do que 512 (não tão menor).
@@ -158,7 +158,7 @@ Bom, foi visto que podemos escrever o tamanho total do chunk, e com isso o `\0` 
 
 Com isso conseguimos realizar um `double-free`, forçando o chunk ter 2 tamanhos diferentes, e também conseguimos manipular o `fd` (ponteiro para o próximo chunk na bin). Mas como vamos conseguir chegar na função `win()`? 
 
-É aí que entra uma carta na manga, os ponteiros `__free_hook` e `__malloc_hook` da **libc**. Esses ponteiros são usados nas suas respectivas funções, com a função de garantir a execução de uma outra função específica, dessa forma, se alterarmos elee (apenas 1), podemos alterar o fluxo de execução para alguma função `win()`. Isso só será possível, pois há um vazamento da system no início, permitindo quebrar a proteção **ASLR**.
+É aí que entra uma carta na manga, os ponteiros `__free_hook` e `__malloc_hook` da **libc**. Esses ponteiros são usados nas suas respectivas funções, com a função de garantir a execução de uma outra função específica, dessa forma, se alterarmos eles (apenas 1), podemos alterar o fluxo de execução para alguma função `win()`. Isso só será possível, pois há um vazamento da system no início, permitindo quebrar a proteção **ASLR**.
 
 > [!note]
 > Os ponteiros `__free_hook` e `__malloc_hook` foram removidos na versão 2.34.
