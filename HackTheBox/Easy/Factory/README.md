@@ -14,17 +14,16 @@
 
 **Descrição:**
 
-> Sua infraestrutura foi atacada, e a interface HMI (onde você monitora e controla os sistemas) ficou offline, fazendo com que você perdesse o controle de alguns PLCs (controladores lógicos programáveis) críticos no seu sistema de controle industrial (ICS). Pouco após o ataque começar, você conseguiu identificar o alvo do ataque, mas não teve tempo de agir.
-> 
-> 
-> O problema principal é que os sensores de nível de água (alto/baixo) do tanque de armazenamento de água estão corrompidos, o que fez com que o PLC entrasse em um estado de "parada" (halt). Isso significa que o sistema não está mais operando corretamente, e o tanque pode transbordar se não for esvaziado a tempo.
-> 
-> No entanto, a boa notícia é que um dos operadores de campo conseguiu estabelecer uma **conexão remota diretamente com a rede serial** do sistema. Isso significa que, mesmo sem a interface HMI, o operador pode se conectar diretamente aos dispositivos e enviar comandos para tentar recuperar o controle e evitar o transbordamento do tanque.
-> 
-> Em resumo, a prioridade agora é usar a conexão remota para:
-> 
-> 1. Recuperar o controle do PLC.
-> 2. Forçar a operação do sistema para **esvaziar o tanque** e **evitar o transbordamento**.
+Sua infraestrutura foi atacada, e a interface HMI (onde você monitora e controla os sistemas) ficou offline, fazendo com que você perdesse o controle de alguns PLCs (controladores lógicos programáveis) críticos no seu sistema de controle industrial (ICS). Pouco após o ataque começar, você conseguiu identificar o alvo do ataque, mas não teve tempo de agir.
+
+O problema principal é que os sensores de nível de água (alto/baixo) do tanque de armazenamento de água estão corrompidos, o que fez com que o PLC entrasse em um estado de "parada" (halt). Isso significa que o sistema não está mais operando corretamente, e o tanque pode transbordar se não for esvaziado a tempo.
+
+No entanto, a boa notícia é que um dos operadores de campo conseguiu estabelecer uma **conexão remota diretamente com a rede serial** do sistema. Isso significa que, mesmo sem a interface HMI, o operador pode se conectar diretamente aos dispositivos e enviar comandos para tentar recuperar o controle e evitar o transbordamento do tanque.
+
+Em resumo, a prioridade agora é usar a conexão remota para:
+ 
+1. Recuperar o controle do PLC.
+2. Forçar a operação do sistema para **esvaziar o tanque** e **evitar o transbordamento**.
 
 ---
 
