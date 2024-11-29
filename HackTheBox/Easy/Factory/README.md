@@ -74,19 +74,19 @@ Em resumo, a prioridade agora é usar a conexão remota para:
     
     Modbus command: 520526DBFF00
     
-    ![image.png](/images/image.png)
+    ![image.png](images/image.png)
     
 2. Ligando a válvula de saída
     
     Modbus command: 52050034FF00
     
-    ![image.png](/images/image%201.png)
+    ![image.png](images/image%201.png)
     
 3. Desligando a válvula de entrada
     
     Modbus command: 5205001AFF00
     
-    ![image.png](/images/image%202.png)
+    ![image.png](images/image%202.png)
     
 
 Após essa sequência de passos o problema foi resolvido, portanto a flag é liberada.
