@@ -33,7 +33,7 @@
 
 ### **2. Entendendo a Printer Job Language** (PJL).
 
-Quando encontro a página Job Controls, é possível perceber no formulário o seguinte comando: `@PJL INFO ID`, pesquisando o que seria PJL, encontro este site: [Print Job Language (PJL) | hp’s Developer Portal](https://developers.hp.com/hp-printer-command-languages-pcl/doc/print-job-language-pjl) ****com um documento que contém informações sobre **Printer Job Language** (PJL).
+Quando encontro a página Job Controls, é possível perceber no formulário o seguinte comando: `@PJL INFO ID`, pesquisando o que seria PJL, encontro este site: [Print Job Language (PJL) | hp’s Developer Portal](https://developers.hp.com/hp-printer-command-languages-pcl/doc/print-job-language-pjl) com um documento que contém informações sobre **Printer Job Language** (PJL).
 
 As principais funções são:
 
