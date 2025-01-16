@@ -1,4 +1,4 @@
-# WriteUp - Delulu
+# [pwn]-delulu
 ## Autor(s): Diego Valim & Murilo Gebra
 
 Analisando o arquivo `delulu`, disponibilizado na plataforma do HTB, no ghidra, descobrimos um ponteiro(`local_40` (renomeada para `var_ptr` na imagem)) para um variável `local_48` (renomeada para ‘var’ na imagem) de valor `0x1337babe`.
