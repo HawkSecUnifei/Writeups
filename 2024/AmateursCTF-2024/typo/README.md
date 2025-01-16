@@ -1,4 +1,4 @@
-# WriteUp - Rev - Typo
+# [rev]-typo
 ## Autor: HenriUz
 
 ## Analisando o desafio
