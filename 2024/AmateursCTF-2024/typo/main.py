@@ -40,14 +40,9 @@ def rand(arr, ar):
     return arr
 
 def funcModificada(arr, ar):
-    print(ar, type(ar))
-    print(ar.hex(), type(ar.hex()))
     ar = int(ar.hex(),17)
-    print(ar, type(ar))
-    print(int(str(ar), 10))
     for r in arr:
         ar += int(r, 35)
-    print(ar)
     return bytes.fromhex(hex(ar)[2:])
 
 arrRRrrrrRRrRRRrRrRRRRr = rand(arquivoBin, R.encode())
