@@ -5,7 +5,7 @@
 Ao olhar para o desafio temos dois arquivos para serem baixados, o primeiro é um arquivo `.py` e o segundo um `.txt`.
 
 mian.py:
-```p
+```py
 import random as RrRrRrrrRrRRrrRRrRRrrRr
 RrRrRrrrRrRRrrRRrRRrRrr = int('1665663c', 20)
 RrRrRrrrRrRRrrRRrRRrrRr.seed(RrRrRrrrRrRRrrRRrRRrRrr)
@@ -55,7 +55,7 @@ output.txt:
 Para resolver esse desafio primeiro a gente deve dar um jeito de entender o código `mian.py`, ele obviamente é quem deixa a `flag` igual à saída do `output.txt`, e minha abordagem para entender esse código foi renomear todas as variáveis.
 
 main.py:
-```p
+```py
 import random as rand
 
 #Setando a seed.
@@ -123,7 +123,7 @@ A função `funModificada` é a mais complicada, preisamos transformar nosso `by
 
 A função `rand` continua a mesma coisa, pois modificamos as funções que ela utiliza acima.
 
-```p
+```py
 import random as r
 
 #Converte o inteiro '1665663c' para um inteiro na base 20 (0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,g,h,i,j)
