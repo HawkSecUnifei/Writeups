@@ -1,0 +1,38 @@
+services:
+  web:
+    build: .
+    container_name: web
+    restart: unless-stopped  # Ensures automatic restarts for non-critical failures
+    ports:
+      - "80:80"
+    networks:
+      - nw
+    environment:
+      - PORT=80
+      - FLAG=srdnlen{fake_flag}
+      - JWT_SECRET=fake_secret
+      - NODE_ENV=production
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+
+  mongo:
+    image: mongo:6.0.9
+    container_name: mongo
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+      - ./mongo.js:/docker-entrypoint-initdb.d/mongo.js:ro 
+    env_file:
+      - .env
+    networks:
+      - nw
+
+volumes:
+  mongo_data:
+    driver: local
+
+networks:
+  nw:
+    driver: bridge
