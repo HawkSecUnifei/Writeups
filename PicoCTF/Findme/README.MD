@@ -78,3 +78,6 @@ Este desafio destacou a importância de analisar os redirecionamentos de URLs em
 - [Base64 Decode](https://www.base64decode.org/) para decodificar strings em Base64
 
 **Flag Final:** `picoCTF{proxies_all_the_way_df44c94c}`
+
+## Autor da WriteUp
+[Membro de Exploitation - gabrielhdsalves](https://github.com/gabrielhdsalves)
