@@ -143,7 +143,7 @@ print(response.text)
 ```
 Recebemos no webhook: *picoCTF%7Blittle_alchemy_was_the_0g_game_does_anyone_rememb3r_9889fd4a%7D%20btw%20contact%20me%20on%20discord%20with%20ur%20solution%20thanks%20@ehhthing* \
 Decodificando-o obtemos: picoCTF{little_alchemy_was_the_0g_game_does_anyone_rememb3r_9889fd4a} btw contact me on discord with ur solution thanks @ehhthing \
-Logo a flag é: picoCTF{little_alchemy_was_the_0g_game_does_anyone_rememb3r_9889fd4a}
+Logo a flag é: **picoCTF{little_alchemy_was_the_0g_game_does_anyone_rememb3r_9889fd4a}**
 
 ## Autor da WriteUp
 [Membro de Networking - Luiz Felipe](https://github.com/LuizF14)
