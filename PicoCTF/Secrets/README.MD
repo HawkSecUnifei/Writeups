@@ -29,7 +29,7 @@ Ao acessar o site, visualmente não há nada útil para ser analisado. A soluç�
 Ao inspecionar o HTML da página inicial, encontramos uma referência a uma imagem:
 
 
-![Primeira Imagem](primeira.png)
+![Primeira Imagem](assets/img1.png)
 ```html
 <img src="secret/assets/DX1KYM.jpg" alt="https://www.alamy.com/security-safety-word-cloud-concept-image-image67649784.html" class="responsive">
 ```
@@ -43,7 +43,7 @@ Acessando essa URL, encontramos a mensagem:
 
 Não há nada útil visível, mas ao inspecionar o código fonte do HTML, encontramos outra referência suspeita:
 
-![Segunda Imagem](segunda.png)
+![Segunda Imagem](assets/img2.png)
 
 ```html
 <link rel="stylesheet" href="hidden/file.css">
@@ -58,7 +58,7 @@ Removendo o `file.css` do caminho, obtemos um novo diretório:
 
 Ao acessar esta URL, novamente não há nada útil visualmente. Porém, ao inspecionar o código fonte, encontramos outra referência:
 
-![Terceira Imagem](terceira.png)
+![Terceira Imagem](assets/img3.png)
 
 ```html
 <link href="superhidden/login.css" rel="stylesheet">
