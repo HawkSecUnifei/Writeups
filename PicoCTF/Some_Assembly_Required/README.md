@@ -3,7 +3,7 @@
 **Author**: Sears Schulz \
 **Plataforma**: [PicoCTF](https://play.picoctf.org/practice/challenge/152?category=1&page=3) \
 **Categoria**: Web Exploitation \
-**Dificuldade**: Médio \
+**Dificuldade**: Médio, Difícil \
 **Data**: 2021 \
 
 ## Some Assembly Required 1
@@ -19,6 +19,9 @@ r = ""
 for (let i = 0; i < p.length; i++) r += String.fromCharCode(p[i].charCodeAt() ^ 8)
 ```
 Desse modo, acharemos a flag: **picoCTF{  b2d14eaec72c31305075876bff2b5d}**
+
+## Some Assembly Required 3
+
 
 ## Autor da WriteUp
 [Membro de Networking - Luiz Felipe](https://github.com/LuizF14)
