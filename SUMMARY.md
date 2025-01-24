@@ -44,4 +44,6 @@
   - [Format String 0](PicoCTF/Format%20String%200/README.md)
   - [Format String 1](PicoCTF/Format%20String%201/README.md)
   - [Local Target](PicoCTF/Local%20Target/README.md)
+  - [Picker IV](PicoCTF/Picker%20IV/README.md)
+  - [VNE](PicoCTF/VNE/README.md)
   - [zero_to_hero](PicoCTF/Zero_to_hero/README.md)
