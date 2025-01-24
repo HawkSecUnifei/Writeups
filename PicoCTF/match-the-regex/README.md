@@ -34,3 +34,7 @@ Testando o exemplo `picoctF`, verificamos que ele corresponde ao padrão e resol
 ```
 picoCTF{succ3ssfully_matchtheregex_08c310c6}
 ```
+
+## Autor da WriteUp
+
+[Membro de Exploitation - jvittor1](https://github.com/jvittor1)
