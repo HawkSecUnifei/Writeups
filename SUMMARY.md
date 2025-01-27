@@ -45,6 +45,7 @@
   - [Format String 1](PicoCTF/Format%20String%201/README.md)
   - [Local Target](PicoCTF/Local%20Target/README.md)
   - [Picker IV](PicoCTF/Picker%20IV/README.md)
+  - [two-sum](PicoCTF/two-sum/README.md)
   - [VNE](PicoCTF/VNE/README.md)
   - [zero_to_hero](PicoCTF/Zero_to_hero/README.md)
 - Web Exploitation
