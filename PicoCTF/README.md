@@ -10,5 +10,6 @@
 - [format string 1](https://github.com/HawkSecUnifei/Writeups/blob/main/PicoCTF/Format%20String%201/README.md)
 - [Local Target](Local%20Target/README.md)
 - [Picker IV](Picker%20IV/README.md)
+- [two-sum](two-sum/README.md)
 - [VNE](VNE/README.md)
 - [zero_to_hero](https://github.com/HawkSecUnifei/Writeups/blob/main/PicoCTF/Zero_to_hero/README.md)
