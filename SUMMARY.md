@@ -49,9 +49,11 @@
   - [VNE](PicoCTF/VNE/README.md)
   - [zero_to_hero](PicoCTF/Zero_to_hero/README.md)
 - Web Exploitation
+  - [GET aHEAD](PicoCTF/GET_aHEAD/README.md)
   - [Match the Regex](PicoCTF/match-the-regex/README.md)
   - [Elements](PicoCTF/elements/README.md)
   - [FindMe](PicoCTF/Findme/README.MD)
   - [NoSQL Injection](PicoCTF/no-sql-injection/README.md)
   - [Secrets](PicoCTF/Secrets/README.MD)
   - [Some Assembly Required 1, 2, 3 & 4](PicoCTF/Some_Assembly_Required/README.md)
+  - [Power Cookie](PicoCTF/Power_Cookie/README.md)
