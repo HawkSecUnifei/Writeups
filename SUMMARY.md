@@ -5,6 +5,12 @@
 ## Anos
 
 - 2025
+  - TUCTF 24
+    - [Med Graph](2025/TUCTF%2024/med-graph/README.md)
+    - [My First Secret](2025/TUCTF%2024/my-first-secret/README.md)
+    - [Shopping Time](2025/TUCTF%2024/shopping-time/README.md)
+  - x3CTF
+    - [Submission](2025/x3CTF/submission/README.md)
   - srdnlenCTF 2025
     - [ben10](2025/srdnlen_CTF/ben10/README.md)
     - [Focus. Speed. I am speed.](2025/srdnlen_CTF/focus-speed-i-am-speed/README.md)
