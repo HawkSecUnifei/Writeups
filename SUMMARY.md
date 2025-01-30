@@ -50,6 +50,7 @@
   - [Format String 0](PicoCTF/Format%20String%200/README.md)
   - [Format String 1](PicoCTF/Format%20String%201/README.md)
   - [Format String 2](PicoCTF/Format%20String%202/README.md)
+  - [Format String 3](PicoCTF/Format%20String%203/README.md)
   - [Local Target](PicoCTF/Local%20Target/README.md)
   - [Picker IV](PicoCTF/Picker%20IV/README.md)
   - [two-sum](PicoCTF/two-sum/README.md)
