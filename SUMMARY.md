@@ -5,6 +5,7 @@
 ## Anos
 
 - 2025
+  - Nullcon HackIM CTF Goa 2025
   - TUCTF 24
     - [Med Graph](2025/TUCTF%2024/med-graph/README.md)
     - [My First Secret](2025/TUCTF%2024/my-first-secret/README.md)
