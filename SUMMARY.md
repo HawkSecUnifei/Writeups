@@ -6,6 +6,8 @@
 
 - 2025
   - Nullcon HackIM CTF Goa 2025
+    - [Mr Unlucky](2025/nullcon_CTF/Mr%20Unlucky/README.md)
+    - [scrambled](2025/nullcon_CTF/scrambled/README.md)
   - TUCTF 24
     - [Med Graph](2025/TUCTF%2024/med-graph/README.md)
     - [My First Secret](2025/TUCTF%2024/my-first-secret/README.md)
