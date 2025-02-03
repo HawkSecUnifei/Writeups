@@ -18,7 +18,7 @@ Descrição:
 | solve.py | Código em python que resolve a flag. |
 | output.txt | Output gerado pelo main.py. |
 
-> 📥 **Download:** [Arquivos]()
+> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/scrambled/arquivos.zip)
 
 ## Passo a Passo da Solução
 ### 1. Análise do arquivo fornecido
