@@ -73,3 +73,5 @@ Agora, verificando o arquivo `flag6.txt`, obtemos:
 ```
 x3c{nesting_is_fun_IDOWxzs3}
 ``` 
+## Autor da WriteUp
+[Membro de Networking - Luiz Felipe](https://github.com/LuizF14)
