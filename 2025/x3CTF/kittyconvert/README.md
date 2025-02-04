@@ -56,3 +56,5 @@ Por fim, utilizando esse código para criar um arquivo PNG apropriado e o envian
 ```
 x3c{b1tm4p5_4r3_s1mpl3_6u7_7h3_4lph4_1s_w31rd}
 ```
+## Autor da WriteUp
+[Membro de Networking - Luiz Felipe](https://github.com/LuizF14)
