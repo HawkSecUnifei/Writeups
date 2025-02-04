@@ -6,7 +6,7 @@ Descrição:
 > Pump yourself up with power to get an inspirational quote.
 
 ## Solução
-O arquivo disponibliza o seguinte código python.
+O desafio disponibliza o seguinte código python.
 
 ```py
 import numpy as np
