@@ -4,7 +4,7 @@ Could you write us an article?
 Note: The website is at http://localhost:3000/ for the xssbot.*
 
 - *Web Exploitation*
-- *Autor do writeup: [@rebane2001](https://github.com/rebane2001)*
+- *Autor do writeup: [Luiz Felipe](https://github.com/LuizF14)*
 
 > Você pode acessar os arquivos do desafio no nosso repositório
 > <https://github.com/HawkSecUnifei/Writeups>
@@ -73,5 +73,3 @@ Agora, verificando o arquivo `flag6.txt`, obtemos:
 ```
 x3c{nesting_is_fun_IDOWxzs3}
 ``` 
-## Autor da WriteUp
-[Membro de Networking - Luiz Felipe](https://github.com/LuizF14)
