@@ -11,6 +11,12 @@
     - [Powerplay](2025/nullcon_CTF/Powerplay/README.md)
     - [Profound thought](2025/nullcon_CTF/Profound%20thought/README.md)
     - [scrambled](2025/nullcon_CTF/scrambled/README.md)
+    - [bfail](2025/nullcon_CTF/bfail/README.md)
+    - [numberizer](2025/nullcon_CTF/numberizer/README.md)
+    - [Paginator](2025/nullcon_CTF/Paginator/README.md)
+    - [Paginator v2](2025/nullcon_CTF/paginator-v2/README.md)
+    - [Temptation](2025/nullcon_CTF/temptation/README.md)
+    - [Sess.io](2025/nullcon_CTF/sess.io/README.md)
   - TUCTF 24
     - [Med Graph](2025/TUCTF%2024/med-graph/README.md)
     - [My First Secret](2025/TUCTF%2024/my-first-secret/README.md)
