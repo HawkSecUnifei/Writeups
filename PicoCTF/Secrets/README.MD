@@ -113,4 +113,4 @@ Este desafio destacou a importância de explorar a estrutura de diretórios e in
 **Flag Final:** `picoCTF{succ3ss_@h3n1c@10n_790d2615}`
 
 ## Autor da WriteUp
-[Membro de Exploitation - gabrielhdsalves](https://github.com/gabrielhdsalves)
+[Membro de Networking - gabrielhdsalves](https://github.com/gabrielhdsalves)
