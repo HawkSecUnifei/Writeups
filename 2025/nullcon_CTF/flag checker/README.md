@@ -5,6 +5,14 @@ Categoria: rev
 Descrição:
 > All you need to do is to guess the flag!
 
+### Arquivos
+| Arquivo | Descrição |
+| ------- | --------- |
+| flag_checker | Executável do desafio. |
+| solve.py | Script em Python que resolve o desafio. |
+
+> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/flag%20checker/Arquivos.zip)
+
 ## Solução
 O desafio disponibliza um arquivo binário. Executando o arquivo:
 
@@ -112,3 +120,6 @@ b'ENO{R3V3R53_3NG1N33R1NG_M45T3R!!!}"\n'
 ```
 
 ### Flag: `ENO{R3V3R53_3NG1N33R1NG_M45T3R!!!}`
+
+## Autor
+[Membro de Exploitation - CaioMendesRRosa](https://github.com/CaioMendesRRosa)
