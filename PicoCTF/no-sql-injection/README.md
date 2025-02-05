@@ -118,4 +118,4 @@ picoCTF{jBhD2y7XoNzPv_1YxS9Ew5qL0uI6pasql_injection_25ba4de1}
 
 ## Autor da WriteUp
 
-[Membro de Exploitation - jvittor1](https://github.com/jvittor1)
+[Membro de Networking - jvittor1](https://github.com/jvittor1)

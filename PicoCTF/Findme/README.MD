@@ -80,4 +80,4 @@ Este desafio destacou a importância de analisar os redirecionamentos de URLs em
 **Flag Final:** `picoCTF{proxies_all_the_way_df44c94c}`
 
 ## Autor da WriteUp
-[Membro de Exploitation - gabrielhdsalves](https://github.com/gabrielhdsalves)
+[Membro de Networking - gabrielhdsalves](https://github.com/gabrielhdsalves)

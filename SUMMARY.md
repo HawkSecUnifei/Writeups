@@ -1,18 +1,23 @@
 # Writeup CTFs
 
-- [Introdução](README.md)
+- [🦅 HawkSec - WriteUps](README.md)
 
 ## Anos
 
 - 2025
   - Nullcon HackIM CTF Goa 2025
+    - [flag checker](2025/nullcon_CTF/flag%20checker/README.md)
     - [Mr Unlucky](2025/nullcon_CTF/Mr%20Unlucky/README.md)
+    - [Powerplay](2025/nullcon_CTF/Powerplay/README.md)
+    - [Profound thought](2025/nullcon_CTF/Profound%20thought/README.md)
     - [scrambled](2025/nullcon_CTF/scrambled/README.md)
   - TUCTF 24
     - [Med Graph](2025/TUCTF%2024/med-graph/README.md)
     - [My First Secret](2025/TUCTF%2024/my-first-secret/README.md)
     - [Shopping Time](2025/TUCTF%2024/shopping-time/README.md)
   - x3CTF
+    - [hydraulic-press](2025/x3CTF/hydraulic-press/README.md)
+    - [kittyconvert](2025/x3CTF/kittyconvert/README.md)
     - [Submission](2025/x3CTF/submission/README.md)
   - srdnlenCTF 2025
     - [ben10](2025/srdnlen_CTF/ben10/README.md)

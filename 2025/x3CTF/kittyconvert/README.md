@@ -3,7 +3,7 @@
 *Need to convert a file? Our kittens have got you covered!*
 
 - *Web Exploitation*
-- *Autor do writeup: [@rebane2001](https://github.com/rebane2001)*
+- *Autor do writeup: [Luiz Felipe](https://github.com/LuizF14)*
 
 > Você pode acessar os arquivos do desafio no nosso repositório
 > <https://github.com/HawkSecUnifei/Writeups>
