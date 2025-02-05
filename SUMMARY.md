@@ -16,6 +16,8 @@
     - [My First Secret](2025/TUCTF%2024/my-first-secret/README.md)
     - [Shopping Time](2025/TUCTF%2024/shopping-time/README.md)
   - x3CTF
+    - [hydraulic-press](2025/x3CTF/hydraulic-press/README.md)
+    - [kittyconvert](2025/x3CTF/kittyconvert/README.md)
     - [Submission](2025/x3CTF/submission/README.md)
   - srdnlenCTF 2025
     - [ben10](2025/srdnlen_CTF/ben10/README.md)
