@@ -24,11 +24,10 @@ se nota um arquivo PNG dentro dos dados, começando pelo PNG e terminando pelo I
 
 Passando para o CyberChef, simplesmente colando os dados copiados `...as a Hex Stream` temos algo ilegível. Apagando todos os bytes anteriores ao começo do cabeçalho PNG, que é `89504e` (compare com qualquer PNG para comparar).
 Use o `From Hex` do Cyberchef e temos a nossa imagem bruta, simplesmente use o `Render Image` e a imagem se formará.
+
+
 ![image](./qrcode.png)
 
 Escaneando temos a flag.
 
 ### Flag: `ENO{USB_ETHERNET_ADAPTER_ARE_COOL_N!C3}`
-
-## Autor
-[Membro de Exploitation - CaioMendesRRosa](https://github.com/CaioMendesRRosa)
