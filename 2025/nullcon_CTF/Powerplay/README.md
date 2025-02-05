@@ -5,6 +5,14 @@ Categoria: misc
 Descrição:
 > Pump yourself up with power to get an inspirational quote.
 
+### Arquivos
+| Arquivo | Descrição |
+| ------- | --------- |
+| chall.py | Código sendo executado no servidor. |
+| solve.py | Script em Python que descobre o número correto. |
+
+> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Powerplay/Arquivos.zip)
+
 ## Solução
 O desafio disponibliza o seguinte código python.
 
@@ -107,3 +115,6 @@ You got an inspiration: ENO{d0_n0t_be_s0_neg4t1ve_wh3n_y0u_sh0uld_be_pos1t1ve}
 ```
 
 ### Flag: `ENO{d0_n0t_be_s0_neg4t1ve_wh3n_y0u_sh0uld_be_pos1t1ve}`
+
+## Autor
+[Membro de Exploitation - CaioMendesRRosa](https://github.com/CaioMendesRRosa)
