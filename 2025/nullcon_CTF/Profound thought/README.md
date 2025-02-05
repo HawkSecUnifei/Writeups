@@ -18,7 +18,7 @@ O desafio apenas disponibiliza uma imagem em png.
 
 
 Observando a imagem, não parece ter nada escondido nela. Então, podemos explorar três maneiras mais comum de esconder informações em imagem que é escondendo no próprio arquivo, nos metadados ou por esteganografia. 
-Não é possível encontrar nada escondido nos arquivos da imagem e a imagem também não possui metadados. Então, sobrou apenas estanografia. 
+Não é possível encontrar nada escondido nos arquivos da imagem e a imagem também não possui metadados. Então, sobrou apenas esteganografia. 
 
 Utilizando o site https://stylesuxx.github.io/steganography/  , podemos decodificar a imagem usando esteganografia. Fazendo isso, obtemos a seguinte mensagem escondida.
 
