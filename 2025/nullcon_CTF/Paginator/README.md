@@ -1,4 +1,4 @@
-# Nullcon CTF: Paginator
+# Writeup: Paginator
 
 **Plataforma**: Nullcon CTF  
 **Categoria**: Web Exploitation
