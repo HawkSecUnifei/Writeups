@@ -13,7 +13,7 @@
 | ------- | --------- |
 | ancient-paper.jpg | Imagem fornecida. |
 
-> 📥 **Download:** [Imagem](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Profound%20thought/l5b245c11.png)
+> 📥 **Download:** [Imagem](https://github.com/HawkSecUnifei/Writeups/blob/658f361d6b55553e4d1ad9316dceb20bdfd57cce/2025/nullcon_CTF/Ancient%20Paper/ancient-paper.jpg)
 
 ## Solução
 O desafio disponibiliza a seguinte imagem.
