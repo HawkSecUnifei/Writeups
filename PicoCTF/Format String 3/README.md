@@ -1,18 +1,20 @@
 # WriteUp: format string 3
 
 ## Descrição do Desafio:
-Author: SkrubLawd \
-Plataforma: [PicoCTF](https://play.picoctf.org/practice/challenge/449?category=6&page=1) \
-Categoria: Binary Exploitation \
-Dificuldade: Médio \
-Data: 2024 \
-Descrição:
+**Autor**: SkrubLawd \
+**Plataforma**: [PicoCTF](https://play.picoctf.org/practice/challenge/449?category=6&page=1) \
+**Categoria**: Binary Exploitation \
+**Dificuldade**: Médio \
+**Data**: 2024 \
+**Descrição**:
 > This program doesn't contain a win function. How can you win?
 
 ## Passo a Passo da Solução
 
 ### 1. Análise do arquivo fornecido
 Este desafio, assim como os anteriores, fornece o código-fonte junto com os arquivos executáveis.
+
+{% code title="vuln.c" overflow="wrap" lineNumbers="true" %}
 
 ```c
 #include <stdio.h>
@@ -47,6 +49,9 @@ int main() {
 	return 0;
 }
 ```
+
+{% endcode %}
+
 Por ser um código simples, não há muito o que analisar. 
 
 Temos uma variável global contendo o valor `"/bin/sh"`, que nos daria acesso ao terminal caso fosse passado como parâmetro para a função `system()`.
@@ -56,7 +61,11 @@ Além disso, há uma função (`hello()`) que vaza um endereço da *libc*, e a `
 ### 2. Exploit
 Com essas informações, podemos suspeitar que o *exploit* envolverá reescrever a entrada da `puts()` na tabela *.got*, alterando seu valor para o endereço da função `system()`. Dessa forma, quando a `main()` chamar `puts(normal_string)`, na realidade estará chamando `system(normal_string)`, abrindo um **shell**.
 
-> 💡 **Nota:** Resumidamente, a tabela *.got* contém os endereços resolvidos das funções da *libc*. Como a *libc* é carregada separadamente, suas proteções podem diferir das do binário principal.
+{% hint style="info" %}
+
+**Nota:** Resumidamente, a tabela *.got* contém os endereços resolvidos das funções da *libc*. Como a *libc* é carregada separadamente, suas proteções podem diferir das do binário principal.
+
+{% endhint %}
 
 Antes de construir o *exploit*, é necessário verificar as proteções dos binários:
 
@@ -92,9 +101,15 @@ O *exploit* pode ser construído, mas há algumas dificuldades técnicas:
 - O tamanho do *payload* deve ser múltiplo de 8 para não corromper a pilha.
 - Devemos garantir que os ponteiros corretos sejam usados com `%hn` para escrita de 2 *bytes*.
 
-> 💡 **Nota:** `%n` escreve no ponteiro a quantidade de bytes impressos até o momento. Se um valor muito grande for escrito primeiro, valores menores se tornam impossíveis de escrever.
+{% hint style="info" %}
+
+**Nota:** `%n` escreve no ponteiro a quantidade de bytes impressos até o momento. Se um valor muito grande for escrito primeiro, valores menores se tornam impossíveis de escrever.
+
+{% endhint %}
 
 Com isso em mente, criamos o *script*:
+
+{% code title="solve.py" overflow="wrap" lineNumbers="true" %}
 
 ```py
 from pwn import *
@@ -132,8 +147,10 @@ p.sendline(payload)
 p.interactive()
 ```
 
+{% endcode %}
+
 ### Flag
 `picoCTF{G07_G07?_92325514}` 
 
-## Autor
+## Autor da WriteUp
 [Membro de Exploitation - HenriUz](https://github.com/HenriUz)

@@ -1,6 +1,6 @@
 # PicoCTF: No SQL Injection
 
-**Author**: NGIRIMANA Schadrac \
+**Autor**: NGIRIMANA Schadrac \
 **Plataforma**: PicoCTF\
 **Categoria**: Web Exploitation\
 **Dificuldade**: Média

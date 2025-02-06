@@ -1,6 +1,6 @@
 # PicoCTF: GET aHEAD
 
-**Author**: madStacks \
+**Autor**: madStacks \
 **Plataforma**: PicoCTF\
 **Categoria**: Web Exploitation\
 **Dificuldade**: Facil\
@@ -28,7 +28,7 @@ Ao acessar o site, vemos uma pagina web que apenas tem dois botoes que mudam o b
 
 Para ver mais detalhadamente e com mais facilidade, resolvi usar o comando **cURL** para fazer a requisicao. Utilizar os parametros **-vvv** para aumentar o nivel de verbosidade do comando.
 
-```
+```bash
 curl http://mercury.picoctf.net:34561/ -vvv
 ```
 
@@ -38,7 +38,7 @@ Esse comando nao retornou nada muito interessante, apenas o conteudo do site e o
 
 Porem, ao analisar a descricao do desafio e o titulo, pensei em testar outros metodos HTTP, primeiramente o HEAD, ja que esta evidenciado no titulo do desafio.
 
-```
+```bash
 curl -X HEAD 'http://mercury.picoctf.net:34561/' -vvv
 ```
 

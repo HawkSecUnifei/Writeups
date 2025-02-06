@@ -1,6 +1,6 @@
 # PicoCTF: Match the Regex Writeup
 
-**Author**: Sunday Jacob Nwanyim \
+**Autor**: Sunday Jacob Nwanyim \
 **Plataforma**: PicoCTF\
 **Categoria**: Web Exploitation\
 **Dificuldade**: Média

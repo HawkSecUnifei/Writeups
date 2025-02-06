@@ -1,6 +1,6 @@
 # WriteUp: buffer overflow 3
 ## Descrição do Desafio:
-**Author**: Sanjay C / Palash Oswal \
+**Autor**: Sanjay C / Palash Oswal \
 **Plataforma**: [PicoCTF](https://play.picoctf.org/practice/challenge/260?category=6&page=3) \
 **Categoria**: Binary Exploitation \
 **Dificuldade**: Difícil \
@@ -10,6 +10,9 @@
 ## Passo a Passo da Solução
 ### 1. Análise do arquivo fornecido
 Assim como os anteriores, este fornece o arquivo fonte, `vuln.c`. A análise deste arquivo nos mostra que há uma vulnerabilidade de `buffer overflow` na função `vuln()`, mas dessa vez temos um desafio no caminho, a existência de um canário de 4 caracteres.
+
+{% code title="vuln.c" overflow="wrap" lineNumbers="true" %}
+
 ```c
 void vuln(){
    char canary[CANARY_SIZE];
@@ -38,6 +41,9 @@ void vuln(){
    fflush(stdout);
 }
 ```
+
+{% endcode %}
+
 Também podemos identificar a existência da função `win()`, dessa vez sem parâmetros.
 ### 2. Exploit
 O objetivo é o mesmo dos anteriors, sobrescrever o valor de retorno da função `vuln()`, mas dessa vez temos que descobrir o valor do canário para sobrescrevermos ele com o mesmo valor, e dessa forma não causar erro no programa.
@@ -46,8 +52,11 @@ Por sorte, o canário é de apenas 4 caracteres, e ele é lido de um arquivo `ca
 ### 3. Solução
 A solução encontrada pode não ser a melhor, mas funciona. Como o canário tem apenas 4 caracteres, foi usado força bruta para descobrir o valor dele.
 
-A lógica, é percorrer cada letra e número do alfabeto e ir sobrescrevendo apenas um caractere por vez, aí se não ocorrer erro, encontramos um caractere da canário, e caso ocorra erro continuamos a percorrer os caracteres possíveis.
+A lógica, é percorrer cada letra e número do alfabeto e ir sobrescrevendo apenas um caractere por vez, aí se não ocorrer erro, encontramos um caractere do canário, e caso ocorra erro continuamos a percorrer os caracteres possíveis.
 ### 3.1 Solução com Python
+
+{% code title="solve.py" overflow="wrap" lineNumbers="true" %}
+
 ```py
 from pwn import *
 
@@ -89,7 +98,9 @@ p.sendlineafter(b"Input> ", payload)
 print(p.recvall().decode())
 ```
 
+{% endcode %}
+
 ### Flag
 `picoCTF{Stat1C_c4n4r13s_4R3_b4D_0bf0b08e}`
-## Autor
+## Autor da WriteUp
 [Membro de Exploitation - HenriUz](https://github.com/HenriUz)

@@ -1,6 +1,6 @@
 # PicoCTF: Power Cookie
 
-**Author**: LT 'syreal' Jones \
+**Autor**: LT 'syreal' Jones \
 **Plataforma**: PicoCTF\
 **Categoria**: Web Exploitation\
 **Dificuldade**: Medio\

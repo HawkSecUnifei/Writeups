@@ -1,18 +1,22 @@
 # WriteUp: two-sum
 ## Descrição do Desafio:
-Author: Mubarak Mikail \
-Plataforma: [PicoCTF](https://play.picoctf.org/practice/challenge/382?category=6&page=1) \
-Categoria: Binary Exploitation \
-Dificuldade: Média \
-Data: 2023 \
-Descrição:
+**Autor**: Mubarak Mikail \
+**Plataforma**: [PicoCTF](https://play.picoctf.org/practice/challenge/382?category=6&page=1) \
+**Categoria**: Binary Exploitation \
+**Dificuldade**: Média \
+**Data**: 2023 \
+**Descrição**:
 > Can you solve this? \
 > What two positive numbers can make this possible: n1 > n1 + n2 OR n2 > n1 + n2
 ## Passo a Passo da Solução
 ### 1. Análise do arquivo fornecido
-Este desafio fornece apenas o arquivo fonte `flag.c`. Não tem muito o que ver no arquivo, pois tudo o que ele faz condiz com a descrição, devemos passar como input dois números inteiros e o resultado da soma dos dois deve ser menor do que um dos números passados.
+Este desafio fornece apenas o arquivo fonte `flag.c`. Não tem muito o que ver no arquivo, pois tudo o que ele faz condiz com a descrição, devemos passar como *input* dois números inteiros e o resultado da soma dos dois deve ser menor do que um dos números passados.
 
-> ⚠️ **Importante:** Os dois números devem ser positivos, se eles não forem, a flag não será revelada.
+{% hint style="warning" %}
+
+**Importante:** Os dois números devem ser positivos, se eles não forem, a **flag** não será revelada.
+
+{% endhint %}
 
 ### 2. Integer Overflow
 Antes de irmos para a solução, devemos entender o que é `integer overflow`. Todos os dados primitivos tem tamanho fixo na memória do computador, no caso dos inteiros, isso faz com que haja um número máximo e mínimo que possa ser representado. Tal número pode ser cálculado por −2<sup>n-1</sup> para o número mínimo, e 2<sup>n - 1</sup> - 1 para o número máximo, sendo *n* a quantidade de bits (normalmente são 32 bits).
@@ -25,6 +29,6 @@ Agora que sabemos como `integer overflow` funciona, podemos realizar o desafio. 
 ### Flag
 `picoCTF{Tw0_Sum_Integer_Bu773R_0v3rfl0w_f6ed8057}`
 
-## Autor
+## Autor da WriteUp
 [Membro de Exploitation - HenriUz](https://github.com/HenriUz)
  

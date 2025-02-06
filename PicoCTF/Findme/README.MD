@@ -2,7 +2,7 @@
 
 
 ## Descrição do desafio
-**Author**: Geoffrey Njogu \
+**Autor**: Geoffrey Njogu \
 **Plataforma**: [PicoCTF](https://play.picoctf.org/practice/challenge/349?category=1&difficulty=2&page=1) \
 **Categoria**: Web Exploitation \
 **Dificuldade**: Médio \

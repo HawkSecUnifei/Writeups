@@ -1,6 +1,6 @@
 # WriteUp: buffer overflow 2
 ## Descrição do Desafio:
-**Author**: Sanjay C / Palash Oswal \
+**Autor**: Sanjay C / Palash Oswal \
 **Plataforma**: [PicoCTF](https://play.picoctf.org/practice/challenge/259?category=6&page=2) \
 **Categoria**: Binary Exploitation \
 **Dificuldade**: Média \
@@ -10,6 +10,9 @@
 ## Passo a Passo da Solução
 ### 1. Análise do arquivo fornecido
 Assim como os anteriores, este fornece o arquivo fonte, `vuln.c`. A análise dele é basicamente a mesma do `buffer overflow 1`, com vulnerabilidade de `buffer overflow` na função `vuln()`. A diferença é que a função `win()` necessita de dois parâmetros.
+
+{% code title="vuln.c" overflow="wrap" lineNumbers="true" %}
+
 ```c
 void win(unsigned int arg1, unsigned int arg2) {
   char buf[FLAGSIZE];
@@ -34,12 +37,15 @@ void vuln(){
   puts(buf);
 }
 ```
+
+{% endcode %}
+
 ### 2. Exploit
 O objetivo é o mesmo do anterior, temos que controlar o retorno da função `vuln()` para ela retornar para a função `win()`, mas também temos que passar dois parâmetros, o primeiro com valor de `0xCAFEF00D` e o segundo com valor de `0xF00DF00D`.
 
 Aqui é necessário entender um pouco sobre como a pilha fica quando chamamos uma função. No desafio anterior eu disse que o endereço de retorno é colocado no topo da pilha, guarde isso, mas agora temos que saber como os parâmetros são passados.
 
-Bom, isso depende da arquitetura, se for 32-bits (nosso caso) os parâmetros são passados pela pilha, em ordem decrescente, de forma que a pilha tem que ficar mais ou menos assim:
+Bom, isso depende da arquitetura, se for **32-bits** (nosso caso) os parâmetros são passados pela pilha, em ordem decrescente, de forma que a pilha tem que ficar mais ou menos assim:
 ```
 +-----Stack-----+
 |   End. Ret    |
@@ -48,11 +54,14 @@ Bom, isso depende da arquitetura, se for 32-bits (nosso caso) os parâmetros sã
 |      ...      |
 +---------------+
 ```
-E se for 64-bits, os parâmetros são passados por meio dos registradores, sendo necessário fazer `ROP` para conseguir passar parâmetros.
+E se for **64-bits**, os parâmetros são passados por meio dos registradores, sendo necessário fazer `ROP` para conseguir passar parâmetros.
 ### 3. Solução
-Novamente, o primeiro passo é identificar quantos bytes serão escritos até chegar no endereço de retorno. Após isso, sobrescrevemos o endereço de retorno para ser o endereço da função `win()`, e por fim temos que forjar uma pilha para a função `win()`, ou seja, temos que colocar no topo um endereço para ela retornar (lixo para nós), o parâmetro 1, e por fim o 2.
+Novamente, o primeiro passo é identificar quantos *bytes* serão escritos até chegar no endereço de retorno. Após isso, sobrescrevemos o endereço de retorno para ser o endereço da função `win()`, e por fim temos que forjar uma pilha para a função `win()`, ou seja, temos que colocar no topo um endereço para ela retornar (lixo para nós), o parâmetro 1, e por fim o 2.
 
 ### 3.1 Solução com Python
+
+{% code title="solve.py" overflow="wrap" lineNumbers="true" %}
+
 ```py
 from pwn import *
 
@@ -73,8 +82,10 @@ p.recvlinesS(2)
 print(p.recvall())
 ```
 
+{% endcode %}
+
 ### Flag
 `picoCTF{argum3nt5_4_d4yZ_3c04eab0}`
 
-## Autor
+## Autor da WriteUp
 [Membro de Exploitation - HenriUz](https://github.com/HenriUz)
