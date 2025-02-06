@@ -56,7 +56,7 @@
   - [Factory](HackTheBox/Factory/README.md)
   - [Signals](HackTheBox/Signals/README.md)
   - [Wander](HackTheBox/Wander/README.md)
--Pwn
+- Pwn
   - [Space pirate: Going Deeper](HackTheBox/Space-pirate-Going-Deeper/README.md)
 
 ## PicoCTF
