@@ -13,7 +13,7 @@
 | ------- | --------- |
 | ancient-paper.jpg | Imagem fornecida. |
 
-> 📥 **Download:** [Imagem](https://github.com/HawkSecUnifei/Writeups/blob/658f361d6b55553e4d1ad9316dceb20bdfd57cce/2025/nullcon_CTF/Ancient%20Paper/ancient-paper.jpg)
+> 📥 **Download:** [Imagem](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Ancient%20Paper/ancient-paper.jpg)
 
 ## Solução
 O desafio disponibiliza a seguinte imagem.
@@ -30,3 +30,6 @@ Traduzindo obtemos a mensagem `1337 FORMAT("ENO?H0LL3R1TH_3NC0D3D_F0RTR4N?") = P
 Pronto, basta apenas substitituir os pontos de interrogações pelas chaves e obtemos a nossa flag.
 
 ### Flag: `ENO{H0LL3R1TH_3NC0D3D_F0RTR4N}`
+
+## Autor da WriteUp
+[Membro de Exploitation - CaioMendesRRosa](https://github.com/CaioMendesRRosa)
