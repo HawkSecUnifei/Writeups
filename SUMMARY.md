@@ -56,6 +56,8 @@
   - [Factory](HackTheBox/Factory/README.md)
   - [Signals](HackTheBox/Signals/README.md)
   - [Wander](HackTheBox/Wander/README.md)
+-Pwn
+  - [Space pirate: Going Deeper](HackTheBox/Space-pirate-Going-Deeper/README.md)
 
 ## PicoCTF
 - Binary Exploitation
@@ -69,6 +71,7 @@
   - [Format String 3](PicoCTF/Format%20String%203/README.md)
   - [Local Target](PicoCTF/Local%20Target/README.md)
   - [Picker IV](PicoCTF/Picker%20IV/README.md)
+  - [RPS](PicoCTF/RPS/README.md)
   - [two-sum](PicoCTF/two-sum/README.md)
   - [VNE](PicoCTF/VNE/README.md)
   - [zero_to_hero](PicoCTF/Zero_to_hero/README.md)
