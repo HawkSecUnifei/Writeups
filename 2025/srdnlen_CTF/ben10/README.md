@@ -19,6 +19,8 @@ Ao acessar o site, vemos uma pagina de login com inputs para acessar logar, cria
 
 O codigo da aplicacao web foi disponibilizado no desafio, bati o olho nas paginas estaticas e nao achei nada muito interessante, mas no codigo do backend que foi feito em Python usando o framework Flask, achei alguns metodos. E entre eles achei o seguinte metodo:
 
+{% code title="" overflow="wrap" lineNumbers="true" %}
+
 ```py
 @app.route('/image/<image_id>')
 def image(image_id):
@@ -38,9 +40,13 @@ def image(image_id):
     return render_template('image_viewer.html', image_name=image_id, flag=flag)
 ```
 
+{% endcode %}
+
 Logo, percebi que esse era o metodo que eu deveria usar para pegar a flag. Se analisarmos o codigo vemos que ele pega os **cookies** da sessao para pegar o **username** e faz verificacoes a partir daquele **username**. Entao basta eu conseguir manipular esse username para conseguir capturar a flag! No codigo diz que para pegar a flag o **image_id** precisa ser 'ben10' e o **username** precisa comecar com 'admin'. 
 
 Ao procurar o trecho de codigo que consigo manipular esse dado achei o seguinte metodo:
+
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```py
 @app.route('/register', methods=['GET', 'POST'])
@@ -81,15 +87,21 @@ def register():
     return render_template('register.html')
 ```
 
-Como podemos ver, esse metodo eh para criar usuarios, voce passa o **username** e a **password** e ele insere esse usuario no banco de dados para poder fazer login posteriormente. A principio pensei em **SQLInjection**, porem ele estava usando o "?" na query e passando como parametro, assim o **SQLInjection** se torna incabivel (caso queria saber como me chame q eu explico ;) ). c
+{% endcode %}
+
+Como podemos ver, esse metodo eh para criar usuarios, voce passa o **username** e a **password** e ele insere esse usuario no banco de dados para poder fazer login posteriormente. A principio pensei em **SQLInjection**, porem ele estava usando o "?" na query e passando como parametro, assim o **SQLInjection** se torna incabivel (caso queria saber como me chame q eu explico ;) ).
 
 Continuando... O problema aqui esta no seguinte trecho:
+
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```py
 if username.startswith('admin') or '^' in username:
     flash("I don't like admins", "error")
     return render_template('register.html')
 ```
+
+{% endcode %}
 
 Onde nos proibe de criar um usuario que inicie com **admin**, porem eh essencial para conseguirmos capturar a flag no metodo 'image/image_id' mostrado anteriormente.
 

@@ -11,6 +11,7 @@ Acessando a página inicial, podemos verificar o código fonte.
 
 ![Página inicial](assets/home.png)
 
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```php
 <?php
@@ -60,11 +61,15 @@ if(isset($_GET['p']) && str_contains($_GET['p'], ",")) {
 ?>
 ```
 
+{% endcode %}
+
 Vemos que no código temos a importação do arquivo `flag.php`, que podemos tentar acessar. Ao acessar, nos deparamos com um erro do SQLite3 dizendo que a tabela `flag` já existe.
 
 ![Página flag.php](assets/flag-php.png)
 
 Também podemos perceber que o trecho abaixo é vulnerável a SQL Injection. Podemos então criar um union com a tabela de flags. `UNION SELECT * FROM flag`.
+
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```php
 $q = "SELECT * FROM pages WHERE id >= $min AND id <= $max";
@@ -73,6 +78,8 @@ $q = "SELECT * FROM pages WHERE id >= $min AND id <= $max";
       echo $row['title'] . " (ID=". $row['id'] . ") has content: \"" . $row['content'] . "\"<br>";
     }
 ```
+
+{% endcode %}
 
 A query antes do encoding fica: `/?p=2,10 UNION SELECT * from flag`. Assim obtemos a flag como base64, bastando somente fazer decoding
 ```

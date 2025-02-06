@@ -1,8 +1,8 @@
 # WriteUp: USBnet
 ## Descrição do Desafio
-Categoria: misc
+**Categoria**: misc
 
-Descrição:
+**Descrição**:
 > How good are your USB skills? Show me by recovering the flag!
 
 ### Arquivos
@@ -10,7 +10,7 @@ Descrição:
 | ------- | --------- |
 | usbnet.pcapng | Captura de pacotes de rede fornecida |
 
-> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/USBnet/usbnet.pcapng)
+{% file src="https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/USBnet/usbnet.pcapng" %} usbnet.pcapng {% endfile %}
 
 ## Solução
 Ao abrir o .pcap no wireshark nos deparamos com 226 pacotes do protocolo USB.

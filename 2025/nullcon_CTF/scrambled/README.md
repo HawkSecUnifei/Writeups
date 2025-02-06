@@ -1,8 +1,8 @@
 # WriteUp: scrambled
 
 ## Descrição do Desafio:
-Categoria: rev \
-Descrição:
+**Categoria**: rev \
+**Descrição**:
 > I am so close to finding the secret of immortality, however the code has been lost for ages.
 > 
 > I managed to get all the parts back and even got to know that the key to success is one bite of the forbidden fruit (the scrambled eggs!).
@@ -18,11 +18,13 @@ Descrição:
 | solve.py | Código em python que resolve a flag. |
 | output.txt | Output gerado pelo main.py. |
 
-> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/scrambled/arquivos.zip)
+{% file src="https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/scrambled/arquivos.zip" %} arquivos.zip {% endfile %}
 
 ## Passo a Passo da Solução
 ### 1. Análise do arquivo fornecido
 O desafio fornece tanto o *output* quanto o código em Python que o gerou. O primeiro passo é analisar esse código para entender como o *output* foi produzido.
+
+{% code title="main.py" overflow="wrap" lineNumbers="true" %}
 
 ```py
 import random
@@ -50,6 +52,8 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+{% endcode %}
 
 Analisando o código, podemos ver que ele é relativamente simples. Ele recebe a *flag* e a *key*, dois valores que desconhecemos, e os passa para a função `encode_flag()`.
 
@@ -85,6 +89,8 @@ Logo, a XOR c = b
 ```
 
 Para descobrir a *key*, podemos assumir que o 4º caractere da *flag* é `{`, pois as *flags* estão no formato `ENO{...}`. Dessa forma, basta aplicar o XOR entre `{` e o quarto caractere decodificado para obter a *key*.
+
+{% code title="solve.py" overflow="wrap" lineNumbers="true" %}
 
 ```py
 import random
@@ -133,8 +139,10 @@ if __name__ == "__main__":
 
 ```
 
+{% endcode %}
+
 ### Flag
 `Flag: ENO{5CR4M83L3D_3GG5_4R3_1ND33D_T45TY!!!}`
 
-## Autor
+## Autor da WriteUp
 [Membro de Exploitation - HenriUz](https://github.com/HenriUz)

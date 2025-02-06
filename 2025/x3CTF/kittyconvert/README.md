@@ -12,6 +12,9 @@ O desafio disponibiliza um website chamado KittyConvert que permite os usuários
 
 ## Parte I - Passando pela checagem de extensão
 Ao analisar o código-fonte, notamos o trecho de código no arquivo `index.php`: 
+
+{% code title="index.php" overflow="wrap" lineNumbers="true" %}
+
 ``` php
 if (isset($_FILES['file'])) {
   $base_dir = "/var/www/html/";
@@ -27,10 +30,16 @@ if (isset($_FILES['file'])) {
   }
 }
 ```
+
+{% endcode %}
+
 A função `preg_replace` nesse código está checando se os arquivos sendo enviados tem alguma extensão. Caso eles tenham, a string `'ico'` é colocada no final do nome do arquivo. Isto apaga a possibilidade de mandar um arquivo `exploit.php` com algum código malicioso e então executá-lo ao requerir o path `/uploads/exploit.php`. No entanto, existe uma alternativa: se o arquivo enviado se chamar apenas `.php`, o código `preg_replace("/^(.+)\\..+$/", "$1.ico", basename($_FILES["file"]["name"]))` não adicionará a extensão `.ico`. Isso ocorre porque a expressão regular exige que haja pelo menos um caractere antes do primeiro ponto (.), o que não é o caso de `.php`.
 
 ## Parte II - Construindo o payload
 Nós já temos uma parte do problema pronta: como executar código dentro do servidor. Mas nos deparamos com um obstáculo: o conteúdo do arquivo que enviamos é alterado pela classe `PHP_ICO`. Nosso desafio será criar um arquivo PNG que quando sofre as alterações descritas em `class-php-ico.php` gere um código php interessante.
+
+{% code title="exploit.py" overflow="wrap" lineNumbers="true" %}
+
 ``` python
 from PIL import Image
 
@@ -45,6 +54,8 @@ for index, el in enumerate(zip(*[iter(payload)]*4)):
 
 im.save("exploit.png", "PNG")
 ```
+
+{% endcode %}
 
 Já conseguimos explorar uma vulnerabilidade que permite a execução de código dentro do servidor. Entretanto, enfrentamos um novo obstáculo: o conteúdo do arquivo enviado é modificado pela classe `PHP_ICO`.  
 

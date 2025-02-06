@@ -1,8 +1,8 @@
 # WriteUp: flag checker
 ## Descrição do Desafio
-Categoria: rev
+**Categoria**: rev
 
-Descrição:
+**Descrição**:
 > All you need to do is to guess the flag!
 
 ### Arquivos
@@ -11,7 +11,7 @@ Descrição:
 | flag_checker | Executável do desafio. |
 | solve.py | Script em Python que resolve o desafio. |
 
-> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/flag%20checker/Arquivos.zip)
+{% file src="https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/flag%20checker/Arquivos.zip" %} Arquivos.zip {% endfile %}
 
 ## Solução
 O desafio disponibliza um arquivo binário. Executando o arquivo:
@@ -23,6 +23,8 @@ Incorrect!
 ```
 
 Como o título do desafio sugere, o programa apensa verifica se o input do usuário corresponde à flag. Abrindo o programa no ghidra:
+
+{% code title="main.c" overflow="wrap" lineNumbers="true" %}
 
 ```c
 undefined8 FUN_00101318(void)
@@ -54,11 +56,15 @@ undefined8 FUN_00101318(void)
 }
 ```
 
+{% endcode %}
+
 Podemos observar que essa função recebe o input do usuário na variável `local_38`, chama a função `FUN_0010127a` e verifica o retorno da função para saber se a flag está correta ou incorreta.
 
 Nesse tipo de desafio, podemos utilizar um script que usa a biblioteca angr para resolver de maneira bem simples esse tipo de programa. Para utilizar esse script, precisamos descobrir o tamanho da flag, algum endereço que é acessado apenas quando o input corresponde à flag e algum endereço que é acessado apenas quando o endereço não corresponde à flag.
 
 Olhando a chamada da função `fgets`, percebemos que a função pega 35 (0x23) caracteres do usuário, então a flag possui 35 caracteres. Como o `puts("Correct!");` é acessado apenas quando o input é igual a flag e `puts("Incorrect!");` quando o input é diferente da flag, podemos pegar o endereço dessas instruções.
+
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```asm
         00101386 85 c0           TEST       EAX,EAX
@@ -77,7 +83,11 @@ Olhando a chamada da função `fgets`, percebemos que a função pega 35 (0x23) 
                  ff ff
 ```
 
+{% endcode %}
+
 Observando o assembly dessa parte do código, conseguimos ver que o endereço `0x00101391` é um endereço acessado quando o input do usuário é igual à flag e o endereço `0x0010139b` é acessado quando o input é incorreta. Portanto, podemos fazer o nosso script. (Obs: como a biblioteca angr utiliza o endereço base 0x400000, precisamo mudar os endereços obtidos levando em consideração essa base)
+
+{% code title="solve.py" overflow="wrap" lineNumbers="true" %}
 
 ```py
 import angr
@@ -112,6 +122,8 @@ print(sm)
 print(sm.found[0].posix.dumps(0))
 ```
 
+{% endcode %}
+
 Agora, basta apenas rodar esse script. Rodando ele, obtemos:
 
 ```
@@ -121,5 +133,5 @@ b'ENO{R3V3R53_3NG1N33R1NG_M45T3R!!!}"\n'
 
 ### Flag: `ENO{R3V3R53_3NG1N33R1NG_M45T3R!!!}`
 
-## Autor
+## Autor da WriteUp
 [Membro de Exploitation - CaioMendesRRosa](https://github.com/CaioMendesRRosa)

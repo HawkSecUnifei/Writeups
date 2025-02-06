@@ -11,15 +11,21 @@ O desafio consiste em um **Insecure Direct Object Reference** ([**IDOR**](https:
 
 Podemos então tentar rodar uma query de introspecção para entender um pouco mais do schema do banco de dados. Utilizei essa do [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/GraphQL%20Injection#enumerate-database-schema-via-introspection).
 
+{% code title="" overflow="wrap" lineNumbers="true" %}
+
 ```js
 {__schema{queryType{name}mutationType{name}subscriptionType{name}types{...FullType}directives{name description locations args{...InputValue}}}}fragment FullType on __Type{kind name description fields(includeDeprecated:true){name description args{...InputValue}type{...TypeRef}isDeprecated deprecationReason}inputFields{...InputValue}interfaces{...TypeRef}enumValues(includeDeprecated:true){name description isDeprecated deprecationReason}possibleTypes{...TypeRef}}fragment InputValue on __InputValue{name description type{...TypeRef}defaultValue}fragment TypeRef on __Type{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name}}}}}}}}
 ```
+
+{% endcode %}
 
 Após rodar a query de introspecção, podemos pegar o resultado e passar no [GraphQL Visualizer](https://nathanrandal.com/graphql-visualizer/) para obter um resultado visual da relação entre as tabelas. Logo podemos perceber que há o campo `password` para o `PacientType` e `DoctorType`.
 
 ![Visualização do schema do GraphQL](assets/graphql-erd.svg)
 
 Podemos então tentar mandar uma query com os campos de senha no usuário e doutor.
+
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```js
 {
@@ -34,7 +40,11 @@ Podemos então tentar mandar uma query com os campos de senha no usuário e dout
 }
 ```
 
+{% endcode %}
+
 Como resultado, o servidor nos retorna o hash da senha do usuário atual e do doutor.
+
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```js
 {
@@ -50,6 +60,8 @@ Como resultado, o servidor nos retorna o hash da senha do usuário atual e do do
   }
 }
 ```
+
+{% endcode %}
 
 O hash é um `SHA-256`, podemos utilizar o [`John the Ripper`](https://www.openwall.com/john/) com a wordlist do `rockyou.txt` para achar a senha do doutor.
 

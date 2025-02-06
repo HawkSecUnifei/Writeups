@@ -10,6 +10,8 @@
 
 O desafio consiste em uma espécie de colisão de hash. Temos acesso ao código do servidor HTTP rodando.
 
+{% code title="app.py" overflow="wrap" lineNumbers="true" %}
+
 ```py
 from flask import Flask,render_template,request, redirect
 import sqlite3
@@ -43,7 +45,11 @@ if __name__=="__main__":
     app.run(host="0.0.0.0",port=8000,debug=False)
 ```
 
+{% endcode %}
+
 Podemos observar que não é possível buscar o termo `Flag` na rota de `/review`, e o item é passado em uma função hash, transformado uma string hexadecimal e os 6 primeiros caracteres são o ID do item.
+
+{% code title="app.py" overflow="wrap" lineNumbers="true" %}
 
 ```py
 item = request.args.get("item")
@@ -53,7 +59,11 @@ item = request.args.get("item")
     result = cur.execute("SELECT * FROM items WHERE id=?", (hash[0:6],))
 ```
 
+{% endcode %}
+
 Como somente os 6 primeiros caracteres são levados em conta, podemos tentar achar uma string cujo hash comece com os mesmos 6 caracteres do hash de `Flag`.
+
+{% code title="collision.py" overflow="wrap" lineNumbers="true" %}
 
 ```py
 import hashlib
@@ -75,6 +85,8 @@ def find_collision(target):
 collision_input = find_collision("Flag")
 print(f"Collision Input: {collision_input}")
 ```
+
+{% endcode %}
 
 ```bash
 $ python3 collision.py

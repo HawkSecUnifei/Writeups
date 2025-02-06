@@ -22,6 +22,8 @@ RUN chmod 000 /var/www/html/uploads/flag.txt
 
 Analisando o código fornecido, temos a lógica por trás do upload.
 
+{% code title="index.php" overflow="wrap" lineNumbers="true" %}
+
 ```php
 // src/index.php:67
 <?php
@@ -65,7 +67,11 @@ chdir($old_path);
 ?>
 ```
 
+{% endcode %}
+
 Vemos que somente arquivos que terminam com `.txt` podem ser enviados.
+
+{% code title="index.php" overflow="wrap" lineNumbers="true" %}
 
 ```php
 // src/index.php:82
@@ -75,7 +81,12 @@ if (!str_ends_with($target_file, '.txt')) {
 }
 ```
 
+{% endcode %}
+
 Após o arquivo ser salvo, vemos que ele roda o comando `chmod 000 *` dentro do diretório de uploads.
+
+{% code title="index.php" overflow="wrap" lineNumbers="true" %}
+
 ```php
 // src/index.php:98
 $old_path = getcwd();
@@ -84,6 +95,8 @@ chdir($target_dir);
 shell_exec('chmod 000 *');
 chdir($old_path);
 ```
+
+{% endcode %}
 
 Percebemos que temos um wildcard no comando que é rodado. O `*` é interpretado pelo shell como uma "expressão regular" que corresponde nomes de arquivos com um ou mais caracteres. Se tivessemos a organização de arquivos abaixo e utilizasse o comando acima, ele poderia ser traduzido em `chmod 000 flag.txt arquivo1.txt arquivo2.txt`
 

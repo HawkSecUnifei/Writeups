@@ -17,6 +17,7 @@ Olhando o código da página renderizada, vemos que há um comentário dizendo q
 
 ![Código fonte da página renderizada](assets/page-source.png)
 
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```py
 from flask import Flask, request, redirect, render_template_string
@@ -92,7 +93,11 @@ if __name__ == '__main__':
    app.run(debug=False, host="0.0.0.0", port="8080", threaded=True)
 ```
 
+{% endcode %}
+
 O código nos revela 71 bytes da senha do usuário admin, que foi criada utilizando a função de hash do bcrypt. O hash do bcrypt tem 72 bytes, logo temos que descobrir somente o último byte da senha. Para isso, testamos as 256 possibilidades, passamos pela função de hash e comparamos com o hash da senha que temos.
+
+{% code title="exploit.py" overflow="wrap" lineNumbers="true" %}
 
 ```py
 import bcrypt
@@ -120,6 +125,8 @@ for suffix in itertools.product(range(256)):
 if not found_password:
     print("Password not found!")
 ```
+
+{% endcode %}
 
 ```bash
 $ python exploit.py

@@ -14,6 +14,8 @@ Na página inicial podemos ver o código fonte da página
 
 ![Página inicial](assets/home.png)
 
+{% code title="" overflow="wrap" lineNumbers="true" %}
+
 ```php
 <?php
 ini_set("error_reporting", 0);
@@ -51,6 +53,8 @@ if(isset($_POST['numbers']) && is_array($_POST['numbers'])) {
 }
 ?>
 ```
+
+{% endcode %}
 
 Analisando o código, vemos que para obter a flag precisamos que a soma dos números dê negativo, porém não é permitido passar números negativos e o tamanho da string é no máximo 4.
 

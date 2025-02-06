@@ -13,6 +13,8 @@ Ao fazer login, nos deparamos com uma tela de login. Temos a opção de pegar o 
 
 ![Página inicial](assets/home.png)
 
+{% code title="" overflow="wrap" lineNumbers="true" %}
+
 ```php
 <?php
 define("ALPHA", str_split("abcdefghijklmnopqrstuvwxyz0123456789_-"));
@@ -45,7 +47,11 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 ?>
 ```
 
+{% endcode %}
+
 Analisando o código, vemos que a flag é dividida em segmentos de 4 bytes. Temos também a função `session_id_secure()` que recebe o nome de usuário e senha concatenados. Vamos então analisar essa função
+
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```php
 function session_id_secure($id) {
@@ -58,6 +64,8 @@ function session_id_secure($id) {
     return $id;
 }
 ```
+
+{% endcode %}
 
 Essa função utiliza `mt_rand()` para gerar números pseudoaleatórios, mas antes disso, inicializa a seed do gerador (`mt_srand()`) com um valor derivado de `$SEEDS`. Esse array contém os segmentos da flag e a posição utilizada é determinada pelo primeiro caractere do hash `md5($id)`, tomado como um número hexadecimal (`0-9A-F`) e reduzido ao intervalo válido pelo operador módulo (`% count($SEEDS)`).
 
@@ -135,6 +143,8 @@ f:
 
 Podemos agora fazer um script python para explorar de forma automática e achar a flag
 
+{% code title="exploit.py" overflow="wrap" lineNumbers="true" %}
+
 ```py
 from multiprocessing.pool import Pool
 import subprocess
@@ -206,6 +216,8 @@ results = dict(Pool(4).map(brute_chunk, range(0xb)))
 flag = ''.join(results[key] for key in sorted(results))
 print(f'\nFlag: {flag}')
 ```
+
+{% endcode %}
 
 {% hint style="info" %}
 O código pode demorar bastante para rodar dependendo do seu hardware.

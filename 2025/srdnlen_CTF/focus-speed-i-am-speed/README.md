@@ -16,6 +16,8 @@ O desafio consiste em NoSQL Injection (MongoDB) e Racing Condition. Ao acessar o
 
 Analisando o código, encontramos essa parte do código que lista os produtos, e podemos perceber que a flag está presente na chave `FLAG` do produto de id 4 *"Lightning McQueen's Secret Text"* que custa 50 pontos.
 
+{% code title="" overflow="wrap" lineNumbers="true" %}
+
 ```js
 // server/app.js:67
 
@@ -33,6 +35,7 @@ const products = [
 ];
 ```
 
+{% endcode %}
 
 Para ver a loja, é preciso fazer login. Assim que fazemos login, podemos acessar a "Official Store", onde estão listados os produtos. E nela podemos perceber que temos um botão para resgatar um Gift Card.
 
@@ -40,6 +43,8 @@ Para ver a loja, é preciso fazer login. Assim que fazemos login, podemos acessa
 
 
 Observando um pouco mais o código, achamos essa função que faz a criação dos gift cards, porém é de forma aleatória, então vai ser muito difícil adivinhar.
+
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```js
 // server/app.js:22
@@ -75,7 +80,11 @@ const createDiscountCodes = async () => {
 await createDiscountCodes();
 ```
 
+{% endcode %}
+
 A rota de resgate dos gift cards tem coisas interessantes. O usuário só pode resgatar um giftcard por dia, e considerando o giftcard criado anteriormente, só poderiamos resgatar 20 pontos se soubessemos o código, mas precisamos de 50 pontos para comprar o produto que contem a flag.
+
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```js
 // server/routes:29
@@ -134,14 +143,22 @@ router.get('/redeem', isAuth, async (req, res) => {
 });
 ```
 
+{% endcode %}
+
 Um outro detalhe é em como o código que estamos enviando é processado. Ele é somente jogado em um objeto para fazer a query no Mongoose, sem qualquer sanitização. Logo, podemos explorar a vulnerabilidade de **NoSQL Injection**.
+
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```js
 // server/routes.js:44
 const discount = await DiscountCodes.findOne({discountCode})
 ```
 
+{% endcode %}
+
 Só precisamos fazer a request `GET /redeem?discountCode[$gt]=`, que quando chegar na parte da query, seria traduzida no código abaixo. Explicando o que acontece: O `discountCode[$gt]=` na query será traduzido para um objeto contendo a chave `$gt` com um valor vazio. O [`$gt`](https://www.mongodb.com/docs/manual/reference/operator/query/gt/) é um operador de comparação do MongoDB que faz uma comparação de "maior que". Nesse caso, procura qualquer string maior do que uma string vazia, assim retornando um resultado válido no `findOne`.
+
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```js
 const discount = await DiscountCodes.findOne({
@@ -151,7 +168,11 @@ const discount = await DiscountCodes.findOne({
 })
 ```
 
+{% endcode %}
+
 Com isso conseguimos usar o código de desconto que nos dá 20 pontos, porém precisamos de 50. Voltando a analisar o código, tem um comentário, juntamente com uma parte do código, interessantes:
+
+{% code title="" overflow="wrap" lineNumbers="true" %}
 
 ```js
         // Apply the gift card value to the user's balance
@@ -163,6 +184,8 @@ Com isso conseguimos usar o código de desconto que nos dá 20 pontos, porém pr
         user.lastVoucherRedemption = today;
         await user.save();
 ```
+
+{% endcode %}
 
 Esse código me parece vulnerável a race condition. Uma race condition ocorre quando dois ou mais processos ou threads tentam acessar e modificar um recurso compartilhado (nesse caso um banco de dados) ao mesmo tempo, e o resultado final depende da ordem de execução desses processos. Isso pode causar comportamentos imprevisíveis e erros, como dados incorretos ou inconsistentes.
 

@@ -1,8 +1,8 @@
 # WriteUp: Profound thought
 ## Descrição do Desafio
-Categoria: misc
+**Categoria**: misc
 
-Descrição:
+**Descrição**:
 > An uprising online blogger wants to keep sharing their
 >  
 >  profound thoughts but fears that these statements will
@@ -16,7 +16,7 @@ Descrição:
 | ------- | --------- |
 | l5b245c11.png | Imagem fornecida. |
 
-> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Profound%20thought/l5b245c11.png)
+{% file src="https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Profound%20thought/l5b245c11.png" %} Imagem {% endfile %}
 
 ## Solução
 O desafio apenas disponibiliza uma imagem em png.
@@ -37,5 +37,5 @@ Pronto, obtemos a flag.
 
 ### Flag: `ENO{57394n09r4phy_15_w4y_c00l3r_7h4n_p0rn06r4phy}`
 
-## Autor
+## Autor da WriteUp
 [Membro de Exploitation - CaioMendesRRosa](https://github.com/CaioMendesRRosa)

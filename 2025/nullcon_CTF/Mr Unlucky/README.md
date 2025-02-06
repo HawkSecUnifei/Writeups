@@ -1,7 +1,7 @@
 # WriteUp: Mr Unlucky
 ## Descrição do Desafio:
-Categoria: pwn \
-Descrição:
+**Categoria**: pwn \
+**Descrição**:
 > I have a love/hate relationship with dota2, I either always win or always lose. there is no inbetween :(
 > 
 > However, Oracle told me that If I win at his cursed game I'll win every match and gain the aegis of Immortality in real life as well!
@@ -17,7 +17,7 @@ Descrição:
 | Dockerfile | Arquivo docker. |
 | solve.py | Script em Python que resolve o desafio. |
 
-> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Mr%20Unlucky/Arquivos.zip)
+{% file src="https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Mr%20Unlucky/Arquivos.zip" %} Arquivos.zip {% endfile %}
 
 ## Passo a Passo da Solução
 ### 1. Análise do executável
@@ -48,9 +48,16 @@ Na função `main()`, observamos que:
 - Caso a entrada esteja incorreta, o programa encerra.
 - Se o usuário acertar todas as tentativas, a função `print_flag("flag.txt")` é chamada.
 
-> 💡 **Nota:** As proteções neste caso não serão um problema, pois o objetivo é identificar uma maneira de responder todas as perguntas corretamente.
+{% hint style="info" %}
+
+**Nota:** As proteções neste caso não serão um problema, pois o objetivo é identificar uma maneira de responder todas as perguntas corretamente.
+
+{% endhint %}
 
 Código-fonte da `main()`:
+
+{% code title="main.c" overflow="wrap" lineNumbers="true" %}
+
 ```c
 undefined8 main(EVP_PKEY_CTX *param_1)
 
@@ -101,6 +108,9 @@ undefined8 main(EVP_PKEY_CTX *param_1)
   return 0;
 }
 ```
+
+{% endcode %}
+
 Saída de exemplo:
 ```bash
 I have always been unlucky. I can't even win a single game of dota2 :(
@@ -160,7 +170,13 @@ Para definir a *seed*, usamos a biblioteca `CDLL`, que contém funções da *lib
 No entanto, devemos considerar que o programa chama `sleep(3)` após definir a *seed*,
 o que significa que a *seed* real do servidor será `time(NULL) - 3`.
 
-> 💡 **Nota:** Localmente a *seed* não deve conter o '-3'.
+{% hint style="info" %}
+
+**Nota:** Localmente a *seed* não deve conter o '-3'.
+
+{% endhint %}
+
+{% code title="solve.py" overflow="wrap" lineNumbers="true" %}
 
 ```py
 from ctypes import CDLL
@@ -189,8 +205,10 @@ for i in range(0x32):
 print(p.recvall().decode())
 ```
 
+{% endcode %}
+
 ### Flag
 `ENO{0NLY_TH3_W0RTHY_0N35_C4N_CL41M_THE_AEGIS_OF_IMMORTALITY!!!}`
 
-## Autor
+## Autor da WriteUp
 [Membro de Exploitation - HenriUz](https://github.com/HenriUz)
