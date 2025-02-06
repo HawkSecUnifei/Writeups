@@ -2,12 +2,12 @@
 Bem-vindo ao repositório de WriteUps da HawkSec! Aqui documentamos desafios resolvidos em competições e plataformas de CTF (Capture The Flag), compartilhando técnicas, estratégias e aprendizados adquiridos ao longo do caminho.
 
 ## 🎯 CTFs
-- [2025](/2025)
-- [2024](/2024)
+- [2025](https://hawksec.gitbook.io/pt/writeups/anos/2025)
+- [2024](https://hawksec.gitbook.io/pt/writeups/anos/2024)
 
 ## 🌐 Plataformas
-- [HackTheBox](/HackTheBox)
-- [PicoCTF](/PicoCTF)
+- [HackTheBox](https://hawksec.gitbook.io/pt/writeups/hackthebox/hardware)
+- [PicoCTF](https://hawksec.gitbook.io/pt/writeups/picoctf/binary-exploitation)
 
 ## 📂 Estrutura
 Os WriteUps são organizados da seguinte forma:
@@ -19,8 +19,9 @@ Os WriteUps são organizados da seguinte forma:
 |   |   |   ├── 📝 Explicação em formato md
 |   |   |   └── 📎 Arquivos relacionados
 ├── 📁 [Plataforma]/
-|   ├── 📁 [Desafios]/
-|   |   └── 📝 Explicação em formato md
+|   ├── 📁 [Categoria]/
+|   |   ├── 📁 [Desafios]/
+|   |   |   └── 📝 Explicação em formato md
 
 ```
 
