@@ -11,7 +11,7 @@
 | chall.py | Código sendo executado no servidor. |
 | solve.py | Script em Python que descobre o número correto. |
 
-{% file src="https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Powerplay/Arquivos.zip" %} Arquivos.zip {% endfile %}
+> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Powerplay/Arquivos.zip)
 
 ## Solução
 O desafio disponibliza o seguinte código python.

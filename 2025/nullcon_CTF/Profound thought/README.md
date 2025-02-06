@@ -16,7 +16,7 @@
 | ------- | --------- |
 | l5b245c11.png | Imagem fornecida. |
 
-{% file src="https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Profound%20thought/l5b245c11.png" %} Imagem {% endfile %}
+> 📥 **Download:** [Imagem](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Profound%20thought/l5b245c11.png)
 
 ## Solução
 O desafio apenas disponibiliza uma imagem em png.

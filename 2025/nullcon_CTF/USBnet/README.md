@@ -10,7 +10,7 @@
 | ------- | --------- |
 | usbnet.pcapng | Captura de pacotes de rede fornecida |
 
-{% file src="https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/USBnet/usbnet.pcapng" %} usbnet.pcapng {% endfile %}
+> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/USBnet/usbnet.pcapng)
 
 ## Solução
 Ao abrir o .pcap no wireshark nos deparamos com 226 pacotes do protocolo USB.

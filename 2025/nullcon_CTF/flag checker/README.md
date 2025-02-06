@@ -11,7 +11,7 @@
 | flag_checker | Executável do desafio. |
 | solve.py | Script em Python que resolve o desafio. |
 
-{% file src="https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/flag%20checker/Arquivos.zip" %} Arquivos.zip {% endfile %}
+> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/flag%20checker/Arquivos.zip)
 
 ## Solução
 O desafio disponibliza um arquivo binário. Executando o arquivo:
