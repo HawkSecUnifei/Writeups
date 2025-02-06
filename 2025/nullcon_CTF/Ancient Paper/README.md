@@ -13,7 +13,7 @@
 | ------- | --------- |
 | ancient-paper.jpg | Imagem fornecida. |
 
-> 📥 **Download:** [Imagem](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Ancient%20Paper/ancient-paper.jpg)
+> [Imagem](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Ancient%20Paper/ancient-paper.jpg)
 
 ## Solução
 O desafio disponibiliza a seguinte imagem.
