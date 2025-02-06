@@ -18,7 +18,9 @@ Ao abrir o .pcap no wireshark nos deparamos com 226 pacotes do protocolo USB.
 Como não são muitos, apenas de passar o seletor de cima para baixo podemos ver os pacotes com dados mais incomuns, que parecem ter algo além do próprio padrão do protocolo.
 
 Assim no pacote 170,
+
 ![image](https://github.com/user-attachments/assets/39ebcd11-8bc4-4717-8e58-4a78923d18f6)
+
 se nota um arquivo PNG dentro dos dados, começando pelo PNG e terminando pelo IEND.
 
 
