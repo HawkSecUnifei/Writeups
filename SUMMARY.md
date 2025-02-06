@@ -50,10 +50,10 @@
     - [valentines-day](2024/LaCTF-2024/tasks/valentines-day/writeup.md)
 
 ## HackTheBox
-- Fácil
-  - [Factory](HackTheBox/Easy/Factory/README.md)
-  - [Signals](HackTheBox/Easy/Signals/README.md)
-  - [Wander](HackTheBox/Easy/Wander/README.md)
+- Hardware
+  - [Factory](HackTheBox/Factory/README.md)
+  - [Signals](HackTheBox/Signals/README.md)
+  - [Wander](HackTheBox/Wander/README.md)
 
 ## PicoCTF
 - Binary Exploitation
