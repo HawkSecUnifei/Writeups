@@ -1,17 +1,12 @@
 # Write-Up: Factory
 
-## **Descrição do Desafio**
+## Descrição do Desafio
 
-**Nome:** Factory
-
-**Plataforma:** Hack The Box
-
-**Categoria:** Hacking
-
-**Dificuldade:** Fácil
-
-**Data:** Novembro/2024
-
+**Nome:** Factory \
+**Plataforma:** Hack The Box \
+**Categoria:** Hardware \
+**Dificuldade:** Fácil \
+**Data:** Novembro/2024 \
 **Descrição:**
 
 Sua infraestrutura foi atacada, e a interface HMI (onde você monitora e controla os sistemas) ficou offline, fazendo com que você perdesse o controle de alguns PLCs (controladores lógicos programáveis) críticos no seu sistema de controle industrial (ICS). Pouco após o ataque começar, você conseguiu identificar o alvo do ataque, mas não teve tempo de agir.
@@ -27,17 +22,17 @@ Em resumo, a prioridade agora é usar a conexão remota para:
 
 ---
 
-## **Passo a Passo da Solução**
+## Passo a Passo da Solução
 
-### **1. Análise Inicial**
+### 1. Análise Inicial
 
 - **Arquivo/Entrada:** Foram fornecidos dois arquivos de entrada:[`interface_setup`](https://github.com/HawkSecUnifei/Writeups/blob/main/HackTheBox/Easy/Factory/files/interface_setup.png), [`PLC_Ladder_Logic`](https://github.com/HawkSecUnifei/Writeups/blob/main/HackTheBox/Easy/Factory/files/PLC_Ladder_Logic.pdf). O primeiro arquivo contém um esquemático do sistema, que é essencial para nos orientar durante a resolução do exercício. O segundo arquivo apresenta uma descrição detalhada da configuração da interface do sistema, incluindo o endereço do PLC e as numerações das funções, além de uma breve explicação sobre como a conexão é realizada. Também foi disponibilizado um endereço IP e uma porta, que utilizaremos para acessar o sistema por meio do **nc** (netcat).
 
-### **2. Acessando o sistema**
+### 2. Acessando o sistema
 
 - Assim que a instância é iniciada, é fornecido um endereço IP e uma porta. Para acessá-los, utilizamos o seguinte comando em um terminal Linux: `nc endereço_ip porta` .
 
-### **3.  Como mandar um comando para o sistema?**
+### 3.  Como mandar um comando para o sistema?
 
 - Para manipular o sistema, precisamos executar um comando que corresponda a uma carga útil (payload) encontrada em um pacote padrão do protocolo Modbus.
     
@@ -94,3 +89,7 @@ Após essa sequência de passos o problema foi resolvido, portanto a flag é lib
 **Flag:**
 
 `HTB{14dd32_1091c_15_7h3_1091c_c12cu175_f02_1ndu572141_5y573m5}`
+
+## Autor da WriteUp
+
+[Membro de Exploitaion - Pedro Henrique dos Santos Barbosa](https://github.com/Petw143)
