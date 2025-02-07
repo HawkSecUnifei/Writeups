@@ -57,7 +57,10 @@
   - [Signals](HackTheBox/Signals/README.md)
   - [Wander](HackTheBox/Wander/README.md)
 - Pwn
+  - [Execute](HackTheBox/Execute/README.md)
+  - [Rocket Blaster XXX](HackTheBox/Rocket-Blaster-XXX/README.md)
   - [Space pirate: Going Deeper](HackTheBox/Space-pirate-Going-Deeper/README.md)
+  - [Vault-breaker](HackTheBox/Vault-breaker/README.md)
 
 ## PicoCTF
 - Binary Exploitation
