@@ -21,7 +21,7 @@ Como isso é insuficiente para determinar o que está acontecendo de fato, devem
 
 {% endhint %}
 
-{% code tittle="new_key_gen" overflow="wrap" lineNumbers="true" %}
+{% code title="new_key_gen" overflow="wrap" lineNumbers="true" %}
 
 ```c
 void new_key_gen(void)
@@ -70,7 +70,7 @@ void new_key_gen(void)
 
 {% endcode %}
 
-{% code tittle="secure_password" overflow="wrap" lineNumbers="true" %}
+{% code title="secure_password" overflow="wrap" lineNumbers="true" %}
 
 ```c
 void secure_password(void)
@@ -149,7 +149,7 @@ Com isso, podemos ir zerando o valor da `random_key`, começando com uma *key* d
 
 Após zerar a variável, basta selecionar a opção 2, que a **flag** será mostrada, pois qualquer operação xor entre um valor e 0 é o próprio valor.
 
-{% code tittle="solve.py" overflow="wrap" lineNumbers="true" %}
+{% code title="solve.py" overflow="wrap" lineNumbers="true" %}
 
 ```py
 from pwn import *

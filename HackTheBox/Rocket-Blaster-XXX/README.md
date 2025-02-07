@@ -25,7 +25,7 @@ Preparing beta testing..
 
 Analisando o assembly pelo **Ghidra**, podemos perceber que o código se resume basicamente a função `main()` que chama uma função para definir uns valores iniciais e chama outra para imprimir o banner, por fim chama a `read()` para ler a entrada do usuário.
 
-{% code tittle="main" overflow="wrap" lineNumbers="true" %}
+{% code title="main" overflow="wrap" lineNumbers="true" %}
 
 ```c
 undefined8 main(void)
@@ -69,7 +69,7 @@ Como o executável não contém a proteção `PIE`, não precisamos nos preocupa
 
 Por meio do comando, verificamos que existe os *gadgets* para os parâmetros, e por fim, podemos identificar a quantidade de *bytes* que devemos escrever com lixo para chegar no endereço de retorno por meio do **pwndbg**, um *breakpoint*, e um *buffer* estourado.
 
-{% code tittle="solve.py" overflow="wrap" lineNumbers="true" %}
+{% code title="solve.py" overflow="wrap" lineNumbers="true" %}
 
 ```py
 from pwn import *
