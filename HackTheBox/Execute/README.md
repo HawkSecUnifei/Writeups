@@ -68,6 +68,12 @@ Analisando o código, podemos perceber que ele verifica se nosso *input* contém
 
 Dessa forma, a vulnerabilidade se torna bem óbvia, devemos inserir *shellcodes* no *input* para eles imprimirem o conteúdo do arquivo `flag.txt` ou deem acesso ao terminal, porém nenhum dos *bytes* da `blacklist` deve estar no *input*.
 
+{% hint style="info" %}
+
+**Nota:** O *shellcode* será executado porque a proteção `NX` está desativada.
+
+{% endhint %}
+
 ### 2. Exploit
 A abordagem adotada foi criar um *shellcode* que chama a *syscall* `execve` passando como parâmetro a *string* `/bin/sh`. Normalmente, o assembly seria:
 
