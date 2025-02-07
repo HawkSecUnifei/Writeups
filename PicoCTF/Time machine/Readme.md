@@ -3,13 +3,13 @@
 
 ## Descrição do desafio
 **Author**: Jeffery John \
-**Plataforma**: [PicoCTF]([https://play.picoctf.org/practice/challenge/349?category=1&difficulty=2&page=1](https://play.picoctf.org/practice/challenge/425?page=1&search=time%20mach)) \
+**Plataforma**: [PicoCTF](https://play.picoctf.org/practice/challenge/425?page=1&search=time%20mach) \
 **Dificuldade**: fácil 
 
 ---
 
 ## Descrição do Desafio
-Nós é dado um arquivo e o seguinte texto:
+É-Nos dado um arquivo para baixar e o seguinte texto:
 
 What was I last working on? I remember writing a note to help me remember...
 You can download the challenge files here:
@@ -43,4 +43,4 @@ Ao utilizar o comando, nos é retornado que o usuario `b92bdd8` havia feito um c
 **Flag Final:** `picoCTF{t1m3m@ch1ne_5cde9075}`
 
 ## Autor da WriteUp
-[Membro de Exploitation - BrunoVinicius]([https://github.com/gabrielhdsalves](https://github.com/BrunoVinicius-1))
+[Membro de Exploitation - BrunoVinicius](https://github.com/BrunoVinicius-1)
