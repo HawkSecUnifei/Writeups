@@ -19,7 +19,7 @@
 
 ## Passo a Passo da Solução
 ### 1. Análise dos arquivos fornecidos
-Este desafio fornece tanto o executável como o código-fonte. Analisando o código, vemos que ele é mais complexo, no sentido de não ser apenas 1 ou 2 funções, porém sua temática é bem interessante, já que ele permite o usuário criar 8 níveis de "dungeons", escrever dados em cada um desses níveis, ler o que está nesses níveis, e como qualquer *rogue-like* acessar tais níveis.
+Este desafio fornece tanto o executável como o código-fonte. Analisando o código, vemos que ele é mais complexo, no sentido de não ser apenas 1 ou 2 funções, porém sua temática é bem interessante, já que ele permite o usuário criar 8 níveis de "dungeons", escrever dados em cada um desses níveis, ler o que está nesses níveis, e como qualquer *rogue-like*, acessar tais níveis.
 
 Para cada nível acessado, as opções são as mesmas, criar, escrever, ler, e acessar. 
 
@@ -200,12 +200,12 @@ int main()
 
 {% endcode %}
 
-Analisando a fundo cada função, podemos identificar algumas interessantes:
+Analisando a fundo cada função, podemos identificar algumas coisas interessantes:
 - Temos um vazamento do endereço da `main()`, dessa forma já podemos burlar o `PIE` do executável.
 - Na função de escrever no nível, nós podemos escrever `0x20` *bytes* a mais do que ele armazena.
 - A função de explorar não faz nenhuma verificação em relação ao endereço, ou seja, podemos acessar qualquer endereço que esteja na índice inserido.
 
-Com isso uma ideia já fica em mente, com o *overflow* podemos sobrescrever o *chunk* da frente para que um de seus índices contenha um endereço para a tabela `.got`, e dessa forma, podemos acessar esse endereço, ler o que tem nele para vazar um endereço da *libc*, e em seguida sobrescrever esse valor para ser a função `system()`. A questão fica, qual função da tabela `.got` devemos sobrescrever, por que ainda temos que passar `/bin/sh` para a função.
+Com isso uma ideia já fica em mente, com o *overflow* podemos sobrescrever o *chunk* da frente para que um de seus índices contenha um endereço da tabela `.got`, e dessa forma, podemos acessar esse endereço, ler o que tem nele para vazar um endereço da *libc*, e em seguida sobrescrever esse valor para ser a função `system()`. A questão fica, qual função da tabela `.got` devemos sobrescrever, por que ainda temos que passar `/bin/sh` para a função.
 
 E é aí, que olhando para a função `get_num()`, identificamos nosso alvo, a função `atoi()` que é chamada como `atoi(buf)`.
 
@@ -298,7 +298,7 @@ Note que antes de chamar a `fgets`, ele passa como *buffer* o `curr` + `0x40`, e
 
 {% hint style="warning" %}
 
-**Importante:** Como em nenhum momento esse *chunk* é liberado, não devemos nos preocupar com o programa identificando um erro ou algo do tipo. Isso acaba fazendo que o desafio nem seja tão relacionado a **HEAP**, já que o *exploit* principal é um *overflow*.
+**Importante:** Como em nenhum momento esse *chunk* é liberado, não devemos nos preocupar com o programa identificando um erro relacionado ao *chunk* corrompido. 
 
 {% endhint %}
 
@@ -364,7 +364,7 @@ p.interactive()
 
 {% hint style="warning" %}
 
-**Importante:** O ideal para esse desafio é usar uma ferramenta como o **pwninit** que cria um novo executável vinculado com a *libc* informada, pois usando o executável normal e sem o *linker*, a *libc* utilizada será a do sistema. No caso, eu não usei o **pwninit** e por isso tive que abrir a *libc* separadamente no programa.
+**Importante:** O ideal para esse desafio é usar uma ferramenta como o **pwninit** que cria um novo executável vinculado com a *libc* informada, pois usando o executável normal e sem o *linker*, a *libc* utilizada será a do sistema. No caso, eu não usei o **pwninit** e por isso tive que abrir a *libc* separadamente na solução.
 
 {% endhint %}
 
