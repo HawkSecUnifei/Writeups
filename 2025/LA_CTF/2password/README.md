@@ -5,6 +5,18 @@
 **Descrição:**
 > 2Password > 1Password
 
+### Arquivos
+| Arquivo | Descrição |
+| ------- | --------- |
+| chall | Executável. |
+| chall.c | Código-fonte. |
+| Dockerfile | Arquivo docker. |
+| ld-linux-x86-64.so.2 | Linker da *libc* |
+| libc.so.6 | *libc* |
+| solve.py | Script em Python que resolve o desafio. |
+
+> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/LA_CTF/2password/Arquivos.zip)
+
 ## Passo a Passo da Solução
 ### 1. Análise dos arquivos fornecidos
 Este desafio fornece tanto o executável como o código-fonte dele. Olhando para o código fonte, notamos que é um código simples, ele apenas pede para inserirmos um usuário, uma senha 1, e por fim uma senha 2, sem nenhuma possibilidade de *overflow*.
