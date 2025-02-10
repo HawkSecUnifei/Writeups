@@ -5,6 +5,9 @@
 ## Anos
 
 - 2025
+  - LA CTF
+    - [2password](2025/LA_CTF/2password/README.md)
+    - [gamedev](2025/LA_CTF/gamedev/README.md)
   - Nullcon HackIM CTF Goa 2025
     - [Ancient Paper](2025/nullcon_CTF/Ancient%20Paper/README.md)
     - [bfail](2025/nullcon_CTF/bfail/README.md)
