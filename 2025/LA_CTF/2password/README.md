@@ -23,7 +23,7 @@ Este desafio fornece tanto o executável como o código-fonte dele. Olhando para
 
 Também notamos que a **flag** não é impressa na tela em nenhum momento, porém, há uma verificação entre o conteúdo dela e a senha 2.
 
-{% code title="chall.c" overflow="wrap" numberLines="true" %}
+{% code title="chall.c" overflow="wrap" lineNumbers="true" %}
 
 ```c
 #include <stdio.h>
@@ -91,7 +91,7 @@ Enter password2: NADA
 Incorrect password for user 0x7ffc38b83a20-(nil)-(nil)-0x1c-(nil)-0x4242424242424241-0x4242424242424242-0x4242424242424242-0x4242424242424242-0x4242424242424242-0x1800041
 ```
 
-{% code title="solve.py" overflow="wrap" numberLines="true" %}
+{% code title="solve.py" overflow="wrap" lineNumbers="true" %}
 
 ```py
 from pwn import *
