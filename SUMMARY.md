@@ -17,6 +17,7 @@
   - Nullcon HackIM CTF Goa 2025
     - [Ancient Paper](2025/nullcon_CTF/Ancient%20Paper/README.md)
     - [bfail](2025/nullcon_CTF/bfail/README.md)
+    - [driving](2025/nullcon_CTF/driving/README.md)
     - [flag checker](2025/nullcon_CTF/flag%20checker/README.md)
     - [Mr Unlucky](2025/nullcon_CTF/Mr%20Unlucky/README.md)
     - [numberizer](2025/nullcon_CTF/numberizer/README.md)
