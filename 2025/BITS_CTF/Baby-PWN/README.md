@@ -1,6 +1,6 @@
 # WriteUp: Baby PWN
 ## Descrição do Desafio
-**Categoria:** PWN \
+**Categoria:** pwn \
 **Descrição:**
 > I hope you are having a nice day.
 
