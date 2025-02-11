@@ -13,7 +13,7 @@
 | ImagemExtraida.jpg | Imagem extraída. |
 | AudioExtraido.wav | Aúdio extraído. |
 
-> 📥 **Download:** [Arquivos]()
+> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/blob/main/2025/BITS_CTF/Finders%20Keepers/arquivos.zip)
 
 ## Solução
 O desafio disponibiliza a seguinte imagem.
