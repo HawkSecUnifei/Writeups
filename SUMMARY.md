@@ -9,6 +9,7 @@
     - [Baby PWN](2025/BITS_CTF/Baby-PWN/README.md)
     - [Baby Rev](2025/BITS_CTF/Baby-Rev/README.md)
     - [Biscuits](2025/BITS_CTF/Biscuits/README.md)
+    - [Finders Keepers](2025/BITS_CTF/Finders%20Keepers/README.md)
   - LA CTF
     - [2password](2025/LA_CTF/2password/README.md)
     - [crypt-of-the-necropuzzler](2025/LA_CTF/crypt-of-the-necropuzzler/README.md)
