@@ -10,7 +10,7 @@
 | ------- | --------- |
 | driving.mp4 | Vídeo disponibilizado pelo desafio |
 
-> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/nullcon_CTF/Powerplay/Arquivos.zip)
+> 📥 **Download:** [Vídeo](https://github.com/HawkSecUnifei/Writeups/blob/main/2025/nullcon_CTF/driving/driving.mp4)
 
 ## Solução
 O desafio disponibliza apenas um arquivo de vídeo.
