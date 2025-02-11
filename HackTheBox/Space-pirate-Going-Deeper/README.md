@@ -158,6 +158,8 @@ p.sendlineafter(b"Input: ", payload)
 print(p.recvall().decode())
 ```
 
+{% endcode %}
+
 ### Flag
 `HTB{d1g_1n51d3..u_Cry_cry_cry}`
 
