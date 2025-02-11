@@ -5,9 +5,15 @@
 ## Anos
 
 - 2025
+  - BITS CTF
+    - [Baby PWN](2025/BITS_CTF/Baby-PWN/README.md)
+    - [Baby Rev](2025/BITS_CTF/Baby-Rev/README.md)
+    - [Biscuits](2025/BITS_CTF/Biscuits/README.md)
   - LA CTF
     - [2password](2025/LA_CTF/2password/README.md)
+    - [crypt-of-the-necropuzzler](2025/LA_CTF/crypt-of-the-necropuzzler/README.md)
     - [gamedev](2025/LA_CTF/gamedev/README.md)
+    - [the-eye](2025/LA_CTF/the-eye/README.md)
   - Nullcon HackIM CTF Goa 2025
     - [Ancient Paper](2025/nullcon_CTF/Ancient%20Paper/README.md)
     - [bfail](2025/nullcon_CTF/bfail/README.md)
