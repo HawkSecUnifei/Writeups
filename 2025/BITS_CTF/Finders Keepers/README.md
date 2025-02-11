@@ -11,18 +11,18 @@
 | ------- | --------- |
 | weird.png | Imagem fornecida. |
 | ImagemExtraida.jpg | Imagem extraída. |
-| AudioExtraido.wav | Aúdio extraído. |
+| AudioExtraido.wav | Áudio extraído. |
 
-> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/blob/main/2025/BITS_CTF/Finders%20Keepers/arquivos.zip)
+> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/2025/BITS_CTF/Finders%20Keepers/arquivos.zip)
 
 ## Solução
 O desafio disponibiliza a seguinte imagem.
 
 ![image](./assets/weird.png)
 
-Se utilizarmos o site [Cyberchef](https://gchq.github.io/CyberChef/) e a operação de `Extract Files`, conseguimos retirar dois arquivos escondidos nessa imagem. Um dos arquivos é uma imagem e o outro arquivo é um aúdio.
+Se utilizarmos o site [Cyberchef](https://gchq.github.io/CyberChef/) e a operação de `Extract Files`, conseguimos retirar dois arquivos escondidos nessa imagem. Um dos arquivos é uma imagem e o outro arquivo é um áudio.
 
-Ao ouvir o aúdio, podemos perceber que se trata de um código morse. Ao traduzir o código morse, conseguimos a palavra `snooooooppppppp`.
+Ao ouvir o áudio, podemos perceber que se trata de um código morse. Ao traduzir o código morse, conseguimos a palavra `snooooooppppppp`.
 
 Portanto, temos uma imagem e uma espécie de "senha". Com isso, podemos usar um método de esconder inforamações em imagem que é a esteganografia com senha. Pra retirar a mensagem escondida da imagem, podemos usar a
 ferramenta `steghide` para decodificar a imagem com a senha `snooooooppppppp`. Pra isso, podemos usar o seguinte comando.
