@@ -91,4 +91,4 @@ ENO{SQL1_W1th_0uT_C0mm4_W0rks_SomeHow!}
 
 ## Autor da WriteUp
 
-[Membro de Exploitation - jvittor1](https://github.com/jvittor1)
+[Membro de Networking - jvittor1](https://github.com/jvittor1)
