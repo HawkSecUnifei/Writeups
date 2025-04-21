@@ -10,6 +10,10 @@
     - [Baby Rev](2025/BITS_CTF/Baby-Rev/README.md)
     - [Biscuits](2025/BITS_CTF/Biscuits/README.md)
     - [Finders Keepers](2025/BITS_CTF/Finders%20Keepers/README.md)
+  - Dawg CTF
+    - [64 bits in my Ark and Texture](2025/DawgCTF/64-bits-in-my-Ark-and-Texture/README.md)
+    - [Interns' Project](2025/DawgCTF/InternsProject/README.md)
+    - [Just Parry Lol](2025/DawgCTF/JustParryLol/README.md)
   - LA CTF
     - [2password](2025/LA_CTF/2password/README.md)
     - [crypt-of-the-necropuzzler](2025/LA_CTF/crypt-of-the-necropuzzler/README.md)
