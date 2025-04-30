@@ -67,6 +67,9 @@
     - [terms-and-conditions](2024/LaCTF-2024/tasks/terms-and-conditions/writeup.md)
     - [valentines-day](2024/LaCTF-2024/tasks/valentines-day/writeup.md)
 
+## Dinâmica
+- [2025](Dinamica/2025/README.md)
+
 ## HackTheBox
 - Hardware
   - [Factory](HackTheBox/Factory/README.md)
