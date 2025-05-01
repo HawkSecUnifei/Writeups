@@ -69,6 +69,10 @@
 
 ## Dinâmica
 - [2025](Dinamica/2025/README.md)
+  - [Assistindo Cachorros](Dinamica/2025/Assistindo_Cachorros/README.md)
+  - [Gato em Pedaços](Dinamica/2025/Gato_em_Pedacos/README.md)
+  - [Lojinha da HawkSec](Dinamica/2025/Lojinha_da_HawkSec/README.md)
+  - [Minha Casa Minha Vida](Dinamica/2025/Minha_Casa_Minha_Vida/README.md)
 
 ## HackTheBox
 - Hardware

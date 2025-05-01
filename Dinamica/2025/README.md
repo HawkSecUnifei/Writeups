@@ -11,7 +11,7 @@ A dinâmica de 2025 foi realizada nos dias 26 e 27 de Abril, de forma presencial
   - O Mistério da Bandeira
   - Era só um bate-papo (só que não)
   - Três camadas de paranoia
-  - Gato em Pedaços
+  - [Gato em Pedaços](./Gato_em_Pedacos/README.md)
 - **Exploitation**
   - Persona 6
   - Inquebrável
@@ -19,9 +19,9 @@ A dinâmica de 2025 foi realizada nos dias 26 e 27 de Abril, de forma presencial
   - Chinês?
   - Não sei rick
 - **Networking**
-  - Assistindo Cachorros
-  - Minha Casa Minha Vida
-  - Lojinha da HawkSec
+  - [Assistindo Cachorros](./Assistindo_Cachorros/README.md)
+  - [Minha Casa Minha Vida](./Minha_Casa_Minha_Vida/README.md)
+  - [Lojinha da HawkSec](./Lojinha_da_HawkSec/README.md)
 
 ## Estatísticas
 - 44 participantes
