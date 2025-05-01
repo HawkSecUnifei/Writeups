@@ -3,7 +3,7 @@
 > A HawkSec resolveu entrar no ramo do varejo e abriu a Lojinha da HawkSec, cheia de swags exclusivos pra quem curte um estilo hacker. De brinde, jogamos a flag desse desafio no catálogo. Mas não se engane: não é só clicar e comprar. A loja tem seus truques, e só os mais espertos vão conseguir colocar a flag no carrinho. Seu dinheiro chega lá? Ou vai precisar de algo a mais pra levar esse item pra casa?
 
 - **Autor:** [@jackskelt](https://github.com/jackskelt)
-- *O desafio foi inspirado no **Shopping Time** do **TUCTF24**. Temos writeup [aqui](../../../2025/TUCTF%2024/shopping-time/flag.png)*
+- *O desafio foi inspirado no **Shopping Time** do **TUCTF24**. Temos writeup [aqui](../../../2025/TUCTF%2024/shopping-time/README.md)*
 
 
 Ao acessar o site, vemos que é uma loja online da HawkSec, onde podemos buscar por produtos.
