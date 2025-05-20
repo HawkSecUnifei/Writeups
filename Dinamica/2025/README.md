@@ -13,7 +13,7 @@ A dinâmica de 2025 foi realizada nos dias 26 e 27 de Abril, de forma presencial
   - Três camadas de paranoia
   - [Gato em Pedaços](./Gato_em_Pedacos/README.md)
 - **Exploitation**
-  - Persona 6
+  - [Persona 6](./Persona-6/README.md)
   - Inquebrável
   - MePassaSuaSenha
   - Chinês?

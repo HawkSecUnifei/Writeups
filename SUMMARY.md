@@ -73,6 +73,7 @@
   - [Gato em Pedaços](Dinamica/2025/Gato_em_Pedacos/README.md)
   - [Lojinha da HawkSec](Dinamica/2025/Lojinha_da_HawkSec/README.md)
   - [Minha Casa Minha Vida](Dinamica/2025/Minha_Casa_Minha_Vida/README.md)
+  - [Persona 6](Dinamica/2025/Persona-6/README.md)
 
 ## HackTheBox
 - Hardware
