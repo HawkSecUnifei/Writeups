@@ -7,8 +7,8 @@
 > Há um tempo, um amigo me contou que estava realmente ansioso pelo anúncio de Persona 6. Então, decidi criar a minha própria versão de Persona 6 para ele se distrair enquanto espera.
 
 ## Passo a passo da solução
-### 1. Análise do código fonte
-O desafio fornece apenas o código fonte `persona6.c`, e o executável. Analisando ele, podemos ver que o código simula um jogo simples, no qual o jogador é representado pela `struct Player` que contém um inteiro sinalizado para a vida e um inteiro não sinalizado para as moedas. Também há os inimigos que são representados pela `struct Enemy` que contém apenas um inteiro para a vida.
+### 1. Análise do código-fonte
+O desafio fornece apenas o código-fonte `persona6.c`, e o executável. Analisando ele, podemos ver que o código simula um jogo simples, no qual o jogador é representado pela `struct Player` que contém um inteiro sinalizado para a vida e um inteiro não sinalizado para as moedas. Também há os inimigos que são representados pela `struct Enemy` que contém apenas um inteiro para a vida.
 
 {% hint style="info" %}
 
@@ -182,6 +182,8 @@ Sabendo o `exploit` basta executar o programa, digitar a opção 2 para ir para 
 {% hint style="warning" %}
 
 **Importante:** Desafios de `PWN` normalmente são feitos para serem executados remotamente, via comando `nc`, porque as `flags` só estarão no computador dos organizadores do desafio. Porém para facilitar a análise, ó código e o `exploit` são testados localmente, e para isso é utilizado uma `fake flag` para o código não quebrar na hora de abrir o arquivo. Esse desafio não era diferente, a `flag` só seria revelada se o `exploit` fosse realizado via `nc` no IP e porta fornecidos.
+
+Pelo mesmo motivo da `flag` estar somente no computador dos organizadores, não adianta modificar o código-fonte na sua máquina, pois o que será obtido é a `fake flag`, e não a real.
 
 {% endhint %}
 
