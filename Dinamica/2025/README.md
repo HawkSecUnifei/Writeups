@@ -14,7 +14,7 @@ A dinâmica de 2025 foi realizada nos dias 26 e 27 de Abril, de forma presencial
   - [Gato em Pedaços](./Gato_em_Pedacos/README.md)
 - **Exploitation**
   - [Persona 6](./Persona-6/README.md)
-  - Inquebrável
+  - [Inquebrável](./Inquebravel/README.md)
   - MePassaSuaSenha
   - Chinês?
   - Não sei rick
