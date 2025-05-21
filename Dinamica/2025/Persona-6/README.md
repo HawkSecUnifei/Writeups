@@ -6,6 +6,15 @@
 **Descrição:**
 > Há um tempo, um amigo me contou que estava realmente ansioso pelo anúncio de Persona 6. Então, decidi criar a minha própria versão de Persona 6 para ele se distrair enquanto espera.
 
+### Arquivos
+| Arquivo | Descrição |
+| ------- | --------- |
+| flag.txt | Flag real do desafio. |
+| Persona6.c | Cósigo-fonte. |
+| Persona6 | Executável (ELF). |
+
+> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/Dinamica/2025/Persona-6/Arquivos.zip)
+
 ## Passo a passo da solução
 ### 1. Análise do código-fonte
 O desafio fornece apenas o código-fonte `persona6.c`, e o executável. Analisando ele, podemos ver que o código simula um jogo simples, no qual o jogador é representado pela `struct Player` que contém um inteiro sinalizado para a vida e um inteiro não sinalizado para as moedas. Também há os inimigos que são representados pela `struct Enemy` que contém apenas um inteiro para a vida.
