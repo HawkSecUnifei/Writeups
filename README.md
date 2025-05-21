@@ -24,8 +24,8 @@ Os WriteUps são organizados da seguinte forma:
 ├── 📁 Dinâmica/
 |   ├── 📁 [Ano]/
 |   |   ├── 📁 [Desafios]/
-|   |   ├── 📝 Explicação em formato md
-|   |   └── 📎 Arquivos relacionados
+|   |   |   ├── 📝 Explicação em formato md
+|   |   |   └── 📎 Arquivos relacionados
 ├── 📁 [Plataforma]/
 |   ├── 📁 [Categoria]/
 |   |   ├── 📁 [Desafios]/
@@ -33,6 +33,4 @@ Os WriteUps são organizados da seguinte forma:
 ```
 
 ## 🗣️ Social
-<div style="display: inline-flex; gap: 5px"> 
-    <a href="https://linktr.ee/hawksec" target="_blank"><img src="https://img.shields.io/badge/linktree-darkgreen?style=for-the-badge&logo=linktree&logoColor=white" target="_blank"></a>
-</div>
+[![badge](https://img.shields.io/badge/linktree-darkgreen?style=for-the-badge&logo=linktree&logoColor=white)](https://linktr.ee/hawksec)
