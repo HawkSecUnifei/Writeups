@@ -10,8 +10,8 @@
 | Arquivo | Descrição |
 | ------- | --------- |
 | flag.txt | Flag real do desafio. |
-| Persona6.c | Cósigo-fonte. |
-| Persona6 | Executável (ELF). |
+| persona6.c | Cósigo-fonte. |
+| persona6 | Executável (ELF). |
 
 > 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/Dinamica/2025/Persona-6/Arquivos.zip)
 

@@ -6,6 +6,15 @@
 **Descrição:**
 > Me disseram que manipular valores na memória de forma indireta é extremamente difícil... Então, resolvi criar meu próprio sistema de autenticação — que, aliás, é **inquebrável**.
 
+### Arquivos
+| Arquivo | Descrição |
+| ------- | --------- |
+| flag.txt | Flag real do desafio. |
+| inquebravel.c | Cósigo-fonte. |
+| inquebravel | Executável (ELF). |
+
+> 📥 **Download:** [Arquivos](https://github.com/HawkSecUnifei/Writeups/raw/refs/heads/main/Dinamica/2025/Inquebravel/Arquivos.zip)
+
 ## Passo a passo da solução
 ### 1. Análise do código-fonte
 Este desafio fornece apenas o código-fonte e o executável. Analisando o código, vemos apenas duas funções: `main()` e `check()`. 
@@ -93,7 +102,7 @@ Em programas assim, as variáveis (do mesmo tipo) declaradas em uma função cos
 
 {% hint style="info" %}
 
-**Note:** Esse desafio foi pensado para ser feito sem auxílio de ferramentas como *debug*, então ele tinha algumas dicas implícitas do *exploit*. A primeira está na descrição que fala de **manipulação de valores na memória de forma indireta**, a segunda é o valor encontrado na função `check()` que diz o tipo de *exploit* (`buffer overflow`), a terceira e última é o `fgets()` ler exatamente o tamanho do vetor `nome` + o tamanho do vetor passado como parâmetro para a função.
+**Note:** Esse desafio foi pensado para ser feito sem auxílio de ferramentas de *debug*, então ele tinha algumas dicas implícitas do *exploit*. A primeira está na descrição que fala de **manipulação de valores na memória de forma indireta**, a segunda é o valor encontrado na função `check()` que diz o tipo de *exploit* (`buffer overflow`), a terceira e última é o `fgets()` ler exatamente o tamanho do vetor `nome` + o tamanho do vetor passado como parâmetro para a função.
 
 {% endhint %}
 
