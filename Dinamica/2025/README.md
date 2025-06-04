@@ -7,10 +7,10 @@ A dinâmica de 2025 foi realizada nos dias 26 e 27 de Abril, de forma presencial
 ## Writeups
 
 - **Investigation**
-  - O Segredo do Falcão
-  - O Mistério da Bandeira
-  - Era só um bate-papo (só que não)
-  - Três camadas de paranoia
+  - [O Segredo do Falcão](./O_Segredo_do_Falcao/README.md)
+  - [O Mistério da Bandeira Perdida](./O_Misterio_da_Bandeira_Perdida/)
+  - [Era só um bate-papo (só que não)](./Era_So_Um_Bate_Papo/README.md)
+  - [Três camadas de paranoia](./Tres_Camadas_de_Paranoia/README.md)
   - [Gato em Pedaços](./Gato_em_Pedacos/README.md)
 - **Exploitation**
   - [Persona 6](./Persona-6/README.md)

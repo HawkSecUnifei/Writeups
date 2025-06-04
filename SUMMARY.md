@@ -70,11 +70,15 @@
 ## Dinâmica
 - [2025](Dinamica/2025/README.md)
   - [Assistindo Cachorros](Dinamica/2025/Assistindo_Cachorros/README.md)
+  - [Era só um bate-papo (só que não)](Dinamica/2025/Era_So_Um_Bate_Papo/README.md)
   - [Gato em Pedaços](Dinamica/2025/Gato_em_Pedacos/README.md)
   - [Inquebrável](Dinamica/2025/Inquebravel/README.md)
   - [Lojinha da HawkSec](Dinamica/2025/Lojinha_da_HawkSec/README.md)
   - [Minha Casa Minha Vida](Dinamica/2025/Minha_Casa_Minha_Vida/README.md)
+  - [O Mistério da Bandeira Perdida](Dinamica/2025/O_Misterio_da_Bandeira_Perdida/README.md)
+  - [O Segredo do Falcão](Dinamica/2025/O_Segredo_do_Falcao/README.md)
   - [Persona 6](Dinamica/2025/Persona-6/README.md)
+  - [Três Camadas de Paranoia](Dinamica/2025/Tres_Camadas_de_Paranoia/README.md)
 
 ## HackTheBox
 - Hardware
