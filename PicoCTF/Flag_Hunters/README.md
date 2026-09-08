@@ -1,9 +1,9 @@
 # Flag Hunters
 
-**Autor:** syreal
-**Plataforma:** CyLab (picoCTF)
-**Categoria:** Engenharia Reversa
-**Dificuldade:** Fácil
+**Autor:** syreal \
+**Plataforma:** CyLab (picoCTF) \
+**Categoria:** Engenharia Reversa \
+**Dificuldade:** Fácil\
 **Data:** 2025
 
 ## Descrição do desafio
