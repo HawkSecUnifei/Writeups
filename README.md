@@ -2,6 +2,7 @@
 Bem-vindo ao repositório de WriteUps da HawkSec! Aqui documentamos desafios resolvidos em competições e plataformas de CTF (Capture The Flag), compartilhando técnicas, estratégias e aprendizados adquiridos ao longo do caminho.
 
 ## 🎯 CTFs
+- [2026](https://hawksec.gitbook.io/pt/writeups/anos/2026)
 - [2025](https://hawksec.gitbook.io/pt/writeups/anos/2025)
 - [2024](https://hawksec.gitbook.io/pt/writeups/anos/2024)
 

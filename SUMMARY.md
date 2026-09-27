@@ -4,6 +4,9 @@
 
 ## Anos
 
+- 2026
+  - Sunshine CTF
+    - [suntrail](2026/SunshineCTF/suntrail/README.md)
 - 2025
   - BITS CTF
     - [Baby PWN](2025/BITS_CTF/Baby-PWN/README.md)
