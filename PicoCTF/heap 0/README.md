@@ -2,7 +2,7 @@
 
 ## Descrição do Desafio
 
-**Plataforma:** [picoCTF — heap 0](https://play.picoctf.org/practice/challenge/438)  
+**Plataforma:** [picoCTF — heap 0](https://learn.cylabacademy.org/library/438)  
 **Autor da WriteUp:** Marcelo Agrico Guedes  
 **Edição:** picoCTF 2024  
 **Categoria:** Binary Exploitation  
@@ -37,7 +37,7 @@ strncpy(safe_var, "bico", SAFE_VAR_SIZE);
 
 `input_data` recebe a entrada do usuário e `safe_var` contém a string inicial `"bico"`. Ambas as requisições solicitam apenas **5 bytes**, suficientes para quatro caracteres mais `\0`. O menu do programa fornece as opções **1. Print Heap**, **2. Write to buffer**, **3. Print safe_var**, **4. Print Flag** e **5. Exit**. A opção 1 apresenta os endereços dos dois ponteiros, permitindo calcular a distância real entre eles na instância utilizada.
 
-Nos ambientes Linux, o deslocamento entre o endereço retornado para `input_data` e o início de `safe_var` é **0x20 = 32 bytes**. Essa distância **não** significa que o buffer disponha de 32 bytes úteis: o tamanho solicitado foi 5, e o layout inclui espaço de alinhamento e metadados do alocador. O cálculo deve ser conferido com os endereços exibidos, pois a disposição da heap pode variar.
+Na execução observada, o deslocamento entre o endereço retornado para `input_data` e o início de `safe_var` foi de **0x20 = 32 bytes**. Essa distância **não** significa que o buffer disponha de 32 bytes úteis: o tamanho solicitado foi 5, e o layout inclui espaço de alinhamento e metadados do alocador. O cálculo deve ser conferido com os endereços exibidos, pois a disposição da heap pode variar.
 
 ```text
 input_data → ["pico\0"] ... [espaço/metadados do alocador] ... safe_var → ["bico\0"]
@@ -119,4 +119,4 @@ Uma alternativa é `fgets(input_data, INPUT_DATA_SIZE, stdin)`, acompanhada do t
 
 * Criado pela equipe **HawkSec Team**, em nome de **Marcelo Agrico Guedes**.
 
-*Referências de estudo: [desafio oficial](https://play.picoctf.org/practice/challenge/438) e [descrição técnica pública do heap 0](https://picoctfsolutions.com/picoctf-2024-heap-0).
+*Referências de estudo: [desafio oficial](https://learn.cylabacademy.org/library/438).*
