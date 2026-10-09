@@ -119,4 +119,4 @@ Uma alternativa é `fgets(input_data, INPUT_DATA_SIZE, stdin)`, acompanhada do t
 
 * Criado pela equipe **HawkSec Team**, em nome de **Marcelo Agrico Guedes**.
 
-*Referências de estudo: [desafio oficial](https://play.picoctf.org/practice/challenge/438) e [descrição técnica pública do heap 0](https://picoctfsolutions.com/picoctf-2024-heap-0). Texto redigido para este documento, sem reprodução literal das referências.*
+*Referências de estudo: [desafio oficial](https://play.picoctf.org/practice/challenge/438) e [descrição técnica pública do heap 0](https://picoctfsolutions.com/picoctf-2024-heap-0).
