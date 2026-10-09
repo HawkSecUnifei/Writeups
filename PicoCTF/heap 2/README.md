@@ -165,4 +165,4 @@ Outra alternativa é usar `fgets(input_data, 5, stdin)`, com verificação do re
 
 * Criado pela equipe **HawkSec Team**, em nome de **Marcelo Agrico Guedes**.
 
-*Referências de estudo: [desafio na CyLab Security Academy](https://learn.cylabacademy.org/library/435) e [documentação técnica pública do heap 2](https://hackucf.org/writeups/heap-2). Os endereços e a flag registrados acima correspondem aos resultados informados para a instância utilizada.*
+*Referências de estudo: [desafio na CyLab Security Academy](https://learn.cylabacademy.org/library/435). Os endereços e a flag registrados acima correspondem aos resultados informados para a instância utilizada.*
