@@ -86,8 +86,10 @@
 
 ## HackTheBox
 - Hardware
+  - [Behind the Scenes](HackTheBox/Behind-the-Scenes/README.md)
   - [Factory](HackTheBox/Factory/README.md)
   - [Signals](HackTheBox/Signals/README.md)
+  - [SpookyPass](HackTheBox/SpookyPass/README.md)
   - [Wander](HackTheBox/Wander/README.md)
 - Pwn
   - [Execute](HackTheBox/Execute/README.md)
