@@ -39,7 +39,7 @@ deles imprime uma frase que sirva como flag.
 O easter egg é acionado por 95 apertos de A/B que precisam bater com um valor derivado
 das tabelas de meteoros. Duas rotinas fazem isso: Coleta (`$80EF`) e Verificação (`$8158`)
 
-```py
+```
 8162 LDA $14 ; i
 AND #$07 / TAY ; i mod 8
 LDA $14 / LSR×3 / TAX ; i div 8
@@ -56,8 +56,6 @@ LDA $0400,X / AND $8609,Y ; bit i do buffer (máscara 80,40,...,01)
 128
 ```
 
-{% endcode %}
-
 O índice inicial é `x = $0B` e o resultado `$16` é zero apenas se todos os bits conferem. A
 saída é SEC (acerto) ou CLC (erro), e em caso de acerto o jogo faz `$04 = 4` e `$05 = 5`,
 mostrando a tela do easter egg.
@@ -73,6 +71,7 @@ Como a verificação compara os apertos com um valor fixo, basta calcular esse v
 T1 e T2 do PRG e rodei a fórmula para i = 0..94:
 
 ` 10010 00010 01000 00100 01101 10011 01000 00000 01111 01110 10011 00100 01101 `
+
 ` 10011 01000 00000 00100 10010 10011                                           `
 
 São exatamente 95 bits, ou seja, 19 grupos de 5. Cinco bits comportam 32 valores, o
