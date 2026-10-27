@@ -4,7 +4,7 @@
 **Plataforma:** CyLab (picoCTF) \
 **Categoria:** Engenharia Reversa \
 **Dificuldade:** Médio\
-**Data:** 2025
+**Data:** 2026
 
 **Descrição do desafio:**
 > The flag is right in front of you; just slightly encrypted. All you have to do is figure out the cipher and the key.
