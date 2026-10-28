@@ -129,4 +129,5 @@
   - [Power Cookie](PicoCTF/Power_Cookie/README.md)
 - Reverse Engineering
   - [Flag Hunters](PicoCTF/Flag_Hunters/README.md)
+  - [Hidden Cipher 1](PicoCTF/Hidden%20Cipher%201/README.md)
   - [Secure Password Database](PicoCTF/Secure_Password_Database/README.md)
