@@ -8,6 +8,10 @@
   - FortID
     - [REV - Meteor Shower](2026/FortID_CTF/Rev-Meteor-Shower/README.md)
     - [REV - Paint me a flag](2026/FortID_CTF/Rev-Paint_me_a_flag/README.md)
+  - RSTCON
+    - [carbon_nonexide](2026/rstcon_CTF/carbon_nonexide/README.md)
+    - [carry_the_tide](2026/rstcon_CTF/carry_the_tide/README.md)
+    - [truck-kun](2026/rstcon_CTF/truck-kun/README.md)
 - 2025
   - BITS CTF
     - [Baby PWN](2025/BITS_CTF/Baby-PWN/README.md)
@@ -96,6 +100,7 @@
   - [Vault-breaker](HackTheBox/Vault-breaker/README.md)
 - Reversing
   - [Behind the Scenes](HackTheBox/Behind-the-Scenes/README.md)
+  - [Simple Encryptor](HackTheBox/Simple-Encryptor/README.md)
   - [SpookyPass](HackTheBox/SpookyPass/README.md)
 
 ## PicoCTF
