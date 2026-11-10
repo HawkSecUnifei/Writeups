@@ -1,13 +1,16 @@
-
 # Writeup CTFs
 
 - [🦅 HawkSec - WriteUps](README.md)
 
 ## Anos
+
 - 2026
   - FortID
     - [REV - Meteor Shower](2026/FortID_CTF/Rev-Meteor-Shower/README.md)
     - [REV - Paint me a flag](2026/FortID_CTF/Rev-Paint_me_a_flag/README.md)
+  - PINK CTF
+    - [GlitchedScreen](2026/PINK_CTF/GlitchedScreen/readme.md)
+    - [TNS](2026/PINK_CTF/TNS/Readme.md)
   - RSTCON
     - [carbon_nonexide](2026/rstcon_CTF/carbon_nonexide/README.md)
     - [carry_the_tide](2026/rstcon_CTF/carry_the_tide/README.md)
@@ -76,6 +79,7 @@
     - [valentines-day](2024/LaCTF-2024/tasks/valentines-day/writeup.md)
 
 ## Dinâmica
+
 - [2025](Dinamica/2025/README.md)
   - [Assistindo Cachorros](Dinamica/2025/Assistindo_Cachorros/README.md)
   - [Era só um bate-papo (só que não)](Dinamica/2025/Era_So_Um_Bate_Papo/README.md)
@@ -89,6 +93,7 @@
   - [Três Camadas de Paranoia](Dinamica/2025/Tres_Camadas_de_Paranoia/README.md)
 
 ## HackTheBox
+
 - Hardware
   - [Factory](HackTheBox/Factory/README.md)
   - [Signals](HackTheBox/Signals/README.md)
@@ -104,6 +109,7 @@
   - [SpookyPass](HackTheBox/SpookyPass/README.md)
 
 ## PicoCTF
+
 - Binary Exploitation
   - [Buffer Overflow 0](PicoCTF/Buffer%20Overflow%200/README.md)
   - [Buffer Overflow 1](PicoCTF/Buffer%20Overflow%201/README.md)
