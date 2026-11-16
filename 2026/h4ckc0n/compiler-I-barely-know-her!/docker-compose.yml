@@ -1,0 +1,17 @@
+services:
+  compileribarelyknowher:
+    build: .
+    image: compileribarelyknowher:latest
+    ports:
+      - "1337:1337"
+    read_only: true
+    tmpfs:
+      - /tmp:exec,size=256m
+    volumes:
+      - ./flag.txt:/opt/chal/flag.txt:ro
+    mem_limit: 768m
+    pids_limit: 256
+    cpus: 1.0
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
