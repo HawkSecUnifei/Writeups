@@ -107,6 +107,9 @@
   - [two-sum](PicoCTF/two-sum/README.md)
   - [VNE](PicoCTF/VNE/README.md)
   - [zero_to_hero](PicoCTF/Zero_to_hero/README.md)
+  - [heap 1](PicoCTF/heap%201/README.md)
+  - [Heap Havoc](PicoCTF/Heap%20Havoc/README.md)
+  - [Echo Valley](PicoCTF/Echo%20Valley/README.md)
 - Web Exploitation
   - [GET aHEAD](PicoCTF/GET_aHEAD/README.md)
   - [Match the Regex](PicoCTF/match-the-regex/README.md)
