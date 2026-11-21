@@ -8,6 +8,8 @@
   - FortID
     - [REV - Meteor Shower](2026/FortID_CTF/Rev-Meteor-Shower/README.md)
     - [REV - Paint me a flag](2026/FortID_CTF/Rev-Paint_me_a_flag/README.md)
+  - h4ckc0n
+    - [Compiler? I Barely Know Her!](2026/h4ckc0n/compiler-I-barely-know-her!/readme.md)
   - PINK CTF
     - [GlitchedScreen](2026/PINK_CTF/GlitchedScreen/readme.md)
     - [TNS](2026/PINK_CTF/TNS/Readme.md)
