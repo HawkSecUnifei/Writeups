@@ -59,7 +59,7 @@ No Ghidra, as funções relevantes são `main` e `get_secret`. O `main` lê o ar
 
 ## 2. Identificando a cifra e a chave
 
-O laço do `main` aplica um XOR em cada byte da flag usando `chave[i % 6]`, e o resultado é impresso em hexadecimal:
+O loop do `main` aplica um XOR em cada byte da flag usando `key[i % 6]`, e o resultado é impresso em hexadecimal:
 
 ```c
 key = get_secret();
@@ -116,8 +116,6 @@ Executando o script com o hex obtido:
 $ python3 dec.py 3250221656192a483b1d412b265d3313501f0c072d135f0d2002302d55473700224a04402e
 academy{xor_unpack_4nalys1s_f3d3a874}
 ```
-
----
 
 ## Flag
 

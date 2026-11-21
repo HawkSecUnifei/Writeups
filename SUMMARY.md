@@ -4,6 +4,19 @@
 
 ## Anos
 
+- 2026
+  - FortID
+    - [REV - Meteor Shower](2026/FortID_CTF/Rev-Meteor-Shower/README.md)
+    - [REV - Paint me a flag](2026/FortID_CTF/Rev-Paint_me_a_flag/README.md)
+  - h4ckc0n
+    - [Compiler? I Barely Know Her!](2026/h4ckc0n/compiler-I-barely-know-her!/readme.md)
+  - PINK CTF
+    - [GlitchedScreen](2026/PINK_CTF/GlitchedScreen/readme.md)
+    - [TNS](2026/PINK_CTF/TNS/Readme.md)
+  - RSTCON
+    - [carbon_nonexide](2026/rstcon_CTF/carbon_nonexide/README.md)
+    - [carry_the_tide](2026/rstcon_CTF/carry_the_tide/README.md)
+    - [truck-kun](2026/rstcon_CTF/truck-kun/README.md)
 - 2025
   - BITS CTF
     - [Baby PWN](2025/BITS_CTF/Baby-PWN/README.md)
@@ -68,6 +81,7 @@
     - [valentines-day](2024/LaCTF-2024/tasks/valentines-day/writeup.md)
 
 ## Dinâmica
+
 - [2025](Dinamica/2025/README.md)
   - [Assistindo Cachorros](Dinamica/2025/Assistindo_Cachorros/README.md)
   - [Era só um bate-papo (só que não)](Dinamica/2025/Era_So_Um_Bate_Papo/README.md)
@@ -81,6 +95,7 @@
   - [Três Camadas de Paranoia](Dinamica/2025/Tres_Camadas_de_Paranoia/README.md)
 
 ## HackTheBox
+
 - Hardware
   - [Factory](HackTheBox/Factory/README.md)
   - [Signals](HackTheBox/Signals/README.md)
@@ -90,8 +105,13 @@
   - [Rocket Blaster XXX](HackTheBox/Rocket-Blaster-XXX/README.md)
   - [Space pirate: Going Deeper](HackTheBox/Space-pirate-Going-Deeper/README.md)
   - [Vault-breaker](HackTheBox/Vault-breaker/README.md)
+- Reversing
+  - [Behind the Scenes](HackTheBox/Behind-the-Scenes/README.md)
+  - [Simple Encryptor](HackTheBox/Simple-Encryptor/README.md)
+  - [SpookyPass](HackTheBox/SpookyPass/README.md)
 
 ## PicoCTF
+
 - Binary Exploitation
   - [Buffer Overflow 0](PicoCTF/Buffer%20Overflow%200/README.md)
   - [Buffer Overflow 1](PicoCTF/Buffer%20Overflow%201/README.md)
@@ -101,11 +121,15 @@
   - [Format String 1](PicoCTF/Format%20String%201/README.md)
   - [Format String 2](PicoCTF/Format%20String%202/README.md)
   - [Format String 3](PicoCTF/Format%20String%203/README.md)
+  - [heap 0](PicoCTF/heap%200/README.md)
+  - [heap 2](PicoCTF/heap%202/README.md)
+  - [heap 3](PicoCTF/heap%203/README.md)
   - [Local Target](PicoCTF/Local%20Target/README.md)
   - [Picker IV](PicoCTF/Picker%20IV/README.md)
   - [RPS](PicoCTF/RPS/README.md)
   - [two-sum](PicoCTF/two-sum/README.md)
   - [VNE](PicoCTF/VNE/README.md)
+  - [x-sixty-what](PicoCTF/x-sixty-what/README.md)
   - [zero_to_hero](PicoCTF/Zero_to_hero/README.md)
   - [heap 1](PicoCTF/heap%201/README.md)
   - [Heap Havoc](PicoCTF/Heap%20Havoc/README.md)
@@ -121,5 +145,5 @@
   - [Power Cookie](PicoCTF/Power_Cookie/README.md)
 - Reverse Engineering
   - [Flag Hunters](PicoCTF/Flag_Hunters/README.md)
-  - [Secure Password Database](PicoCTF/Secure_Password_Database/README.md)
   - [Hidden Cipher 1](PicoCTF/Hidden%20Cipher%201/README.md)
+  - [Secure Password Database](PicoCTF/Secure_Password_Database/README.md)
